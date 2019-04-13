@@ -7,11 +7,11 @@ public final class Model {
     }
 
     public double getLastReportLat() {
-        return 0.0;
+        return 33.75;
     }
 
     public double getLastReportLong() {
-        return 0.0;
+        return -84.38;
     }
 
     public static Model instance() {

@@ -102,5 +102,6 @@ public class viewActivity extends FragmentActivity implements OnMapReadyCallback
         GoogleMap mMap = googleMap;
         LatLng currentLocation = getRecentLocation();
         mMap.moveCamera(CameraUpdateFactory.newLatLng(currentLocation));
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(6));
     }
 }
