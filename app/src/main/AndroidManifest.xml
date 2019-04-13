@@ -28,7 +28,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".viewActivity"
+            android:name=".controller.viewActivity"
             android:label="@string/title_activity_view">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
