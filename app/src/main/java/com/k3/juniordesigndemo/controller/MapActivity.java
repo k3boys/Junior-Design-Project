@@ -4,8 +4,11 @@ import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
 import android.location.Criteria;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.support.annotation.NonNull;
@@ -13,6 +16,10 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -24,7 +31,12 @@ import com.google.android.gms.maps.model.LatLng;
 import com.k3.juniordesigndemo.R;
 import com.k3.juniordesigndemo.model.Model;
 
-public class ViewActivity extends FragmentActivity implements OnMapReadyCallback {
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
+
+public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
+    EditText.OnKeyListener, View.OnClickListener, GoogleMap.OnCameraIdleListener {
 
     private GoogleMap mMap;
     private static final int ACCESS_FINE_LOCATION_CODE = 0;
@@ -32,10 +44,30 @@ public class ViewActivity extends FragmentActivity implements OnMapReadyCallback
     private static boolean askedLocationPermission;
     private static boolean dontAskLocationPermisson;
 
+    private Geocoder geocoder;
+
+    // Activity components
+    private EditText addressEditText;
+    private Button submitReportButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
+
+        // Get activity components
+        addressEditText = findViewById(R.id.addressEditTextMapActivity);
+        submitReportButton = findViewById(R.id.submitReportButton);
+
+        // Set address edit text button callback (for "enter" button)
+        addressEditText.setOnKeyListener(this);
+
+        // Set submit report button callback
+        submitReportButton.setOnClickListener(this);
+
+        // Create Geocoder
+        geocoder = new Geocoder(this, Locale.getDefault());
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -68,7 +100,7 @@ public class ViewActivity extends FragmentActivity implements OnMapReadyCallback
                         .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                ActivityCompat.requestPermissions(ViewActivity.this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, ACCESS_FINE_LOCATION_CODE);
+                                ActivityCompat.requestPermissions(MapActivity.this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, ACCESS_FINE_LOCATION_CODE);
                             }
                         })
                         .setNegativeButton("no thanks", new DialogInterface.OnClickListener() {
@@ -108,7 +140,7 @@ public class ViewActivity extends FragmentActivity implements OnMapReadyCallback
         askedLocationPermission = true;
     }
 
-    public void TransitionMapToLocation(@NonNull LatLng location) {
+    public void transitionMapToLocation(@NonNull LatLng location) {
         final int ZOOM = 17;
         final int NORTH = 0;
         final int TILT = 40;
@@ -135,9 +167,59 @@ public class ViewActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        GoogleMap mMap = googleMap;
-        LatLng currentLocation = getMostRecentLocation();
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(currentLocation));
-        mMap.moveCamera(CameraUpdateFactory.zoomTo(6));
+        // Zoom in to Hampton Roads
+        mMap = googleMap;
+        LatLng hamptonRoadsLocation = new LatLng(36.9751474, -76.3496662);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(hamptonRoadsLocation));
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(11));
+        mMap.setOnCameraIdleListener(this);
+    }
+
+    ///////////////
+    // CALLBACKS //
+    ///////////////
+
+    @Override
+    public boolean onKey(View v, int keyCode, KeyEvent event) {
+        if ((event.getAction() == KeyEvent.ACTION_UP) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+            try {
+                List<Address> addressList = geocoder
+                    .getFromLocationName(addressEditText.getText().toString(), 1);
+                if(!addressList.isEmpty()) {
+                    Address address = addressList.get(0);
+                    LatLng addressLocation = new LatLng(address.getLatitude(), address.getLongitude());
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(addressLocation));
+                }
+            } catch(IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public void onClick(View v) {
+        // Submit report button callback
+        Intent intent = new Intent(this, ReportActivity.class);
+        // Get the address from the EditText, not the Geocoder, might reconsider this approach
+        String address = addressEditText.getText().toString();
+        intent.putExtra("ADDRESS", address);
+        startActivity(intent);
+    }
+
+
+    @Override
+    public void onCameraIdle() {
+        // Camera idle callback
+        try {
+            LatLng currLatLng = mMap.getCameraPosition().target;
+            List<Address> addressList = geocoder
+                .getFromLocation(currLatLng.latitude, currLatLng.longitude, 1);
+            if(!addressList.isEmpty()) {
+                addressEditText.setText(addressList.get(0).getAddressLine(0));
+            }
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
     }
 }
