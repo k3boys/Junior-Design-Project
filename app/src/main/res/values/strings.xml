@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Junior Design Demo</string>
     <string name="title_activity_view">Map</string>
+    <string-array name="categories_array">
+        <item>Broken window</item>
+        <item>Trash</item>
+        <item>Abandoned car</item>
+    </string-array>
+
 </resources>

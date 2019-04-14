@@ -14,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
-        android:text="Title:"
+        android:text="Category:"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
     <TextView
@@ -57,22 +57,20 @@
         android:text="Visual Evidence:"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
-    <EditText
-        android:id="@+id/titleEditText"
+    <Spinner
+        android:id="@+id/categorySpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
-        android:ems="10"
-        android:inputType="text" />
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="60dp" />
 
     <EditText
         android:id="@+id/addressEditTextReportActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/titleEditText"
+        android:layout_alignStart="@+id/categorySpinner"
         android:layout_alignParentTop="true"
         android:layout_marginTop="70dp"
         android:ems="10"
@@ -82,7 +80,7 @@
         android:id="@+id/dateEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/titleEditText"
+        android:layout_alignStart="@+id/categorySpinner"
         android:layout_alignParentTop="true"
         android:layout_marginTop="120dp"
         android:ems="10"
@@ -104,10 +102,9 @@
         android:id="@+id/uploadButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/titleEditText"
+        android:layout_alignEnd="@+id/categorySpinner"
         android:layout_alignParentTop="true"
         android:layout_marginTop="383dp"
-        android:layout_marginEnd="30dp"
         android:text="Upload" />
 
     <Button
