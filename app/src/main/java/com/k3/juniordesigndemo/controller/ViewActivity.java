@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -39,12 +40,10 @@ public class ViewActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        askedLocationPermission = false;
-        dontAskLocationPermisson = false;
-        //TODO: load don't ask again from previous response
+        requestFineLocationPermission();
     }
 
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode) {
             case ACCESS_FINE_LOCATION_CODE: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -86,7 +85,7 @@ public class ViewActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    public LatLng getRecentLocation() {
+    public LatLng getMostRecentLocation() {
         LatLng location;
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -109,18 +108,20 @@ public class ViewActivity extends FragmentActivity implements OnMapReadyCallback
         askedLocationPermission = true;
     }
 
-    public void TransitionMapToLocation(LatLng location) {
-        if (location != null) {
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 13));
+    public void TransitionMapToLocation(@NonNull LatLng location) {
+        final int ZOOM = 17;
+        final int NORTH = 0;
+        final int TILT = 40;
 
-            CameraPosition cameraPosition = new CameraPosition.Builder()
-                    .target(location)      // Sets the center of the map to location user
-                    .zoom(17)                   // Sets the zoom
-                    .bearing(90)                // Sets the orientation of the camera to east
-                    .tilt(40)                   // Sets the tilt of the camera to 30 degrees
-                    .build();                   // Creates a CameraPosition from the builder
-            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-        }
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 13));
+
+        CameraPosition cameraPosition = new CameraPosition.Builder()
+                .target(location)      // Sets the center of the map to location user
+                .zoom(ZOOM)                   // Sets the zoom
+                .bearing(NORTH)                // Sets the orientation of the camera to east
+                .tilt(TILT)                   // Sets the tilt of the camera to 30 degrees
+                .build();                   // Creates a CameraPosition from the builder
+        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
 
     /**
@@ -135,7 +136,7 @@ public class ViewActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         GoogleMap mMap = googleMap;
-        LatLng currentLocation = getRecentLocation();
+        LatLng currentLocation = getMostRecentLocation();
         mMap.moveCamera(CameraUpdateFactory.newLatLng(currentLocation));
         mMap.moveCamera(CameraUpdateFactory.zoomTo(6));
     }
