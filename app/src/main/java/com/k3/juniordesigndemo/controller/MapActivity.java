@@ -53,7 +53,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view);
+        setContentView(R.layout.activity_map);
 
         // Get activity components
         addressEditText = findViewById(R.id.addressEditTextMapActivity);
