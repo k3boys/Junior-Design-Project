@@ -22,7 +22,7 @@ public class PagedReportActivity extends AppCompatActivity {
   LinearLayout dotsLinearLayout;
   Button prevButton, nextButton;
 
-  int[] slides;
+  Fragment[] slides;
 
   @SuppressLint("ClickableViewAccessibility")
   @Override
@@ -37,10 +37,10 @@ public class PagedReportActivity extends AppCompatActivity {
     nextButton = findViewById(R.id.nextButton);
 
     // Set slides for view pager
-    slides = new int[] {
-        R.layout.fragment_street_issues_slide,
-        R.layout.fragment_street_issues_slide,
-        R.layout.fragment_street_issues_slide
+    slides = new Fragment[] {
+        new StreetIssuesSlideFragment(),
+        new StreetIssuesSlideFragment(),
+        new StreetIssuesSlideFragment(),
     };
 
     // Disable swiping
@@ -87,7 +87,7 @@ public class PagedReportActivity extends AppCompatActivity {
 
     @Override
     public Fragment getItem(int position) {
-      return new StreetIssuesSlideFragment();
+      return slides[position];
     }
 
     @Override
