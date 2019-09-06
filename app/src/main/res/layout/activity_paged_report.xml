@@ -6,12 +6,12 @@
     tools:context=".controller.PagedReportActivity">
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/registerActivityViewPager"
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
     <Button
-        android:id="@+id/registerActivityPreviousButton"
+        android:id="@+id/previousButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -23,16 +23,7 @@
         android:text="Previous" />
 
     <Button
-        android:id="@+id/registerActivityOkButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
-        android:text="OK!" />
-
-    <Button
-        android:id="@+id/registerActivityNextButton"
+        android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -44,7 +35,7 @@
         android:text="Next" />
 
     <LinearLayout
-        android:id="@+id/registerActivityDotsLinearLayout"
+        android:id="@+id/dotsLinearLayout"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_alignParentBottom="true"
