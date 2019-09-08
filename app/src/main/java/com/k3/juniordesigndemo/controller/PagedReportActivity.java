@@ -14,6 +14,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.k3.juniordesigndemo.R;
+import com.k3.juniordesigndemo.controller.slides.EnvironmentalIssuesSlideFragment;
+import com.k3.juniordesigndemo.controller.slides.HomeIssuesSlideFragment;
+import com.k3.juniordesigndemo.controller.slides.MiscellaneousIssuesSlideFragment;
+import com.k3.juniordesigndemo.controller.slides.OtherSlideFragment;
+import com.k3.juniordesigndemo.controller.slides.StreetIssuesSlideFragment;
+import com.k3.juniordesigndemo.controller.slides.TrashIssuesSlideFragment;
+import com.k3.juniordesigndemo.controller.slides.VehicleIssuesSlideFragment;
+import com.k3.juniordesigndemo.controller.slides.YardIssuesSlideFragment;
 
 public class PagedReportActivity extends AppCompatActivity {
 
@@ -45,7 +53,7 @@ public class PagedReportActivity extends AppCompatActivity {
                 new TrashIssuesSlideFragment(),
                 new EnvironmentalIssuesSlideFragment(),
                 new MiscellaneousIssuesSlideFragment(),
-                new OtherIssuesSlideFragment()
+                new OtherSlideFragment()
         };
 
         // Disable swiping

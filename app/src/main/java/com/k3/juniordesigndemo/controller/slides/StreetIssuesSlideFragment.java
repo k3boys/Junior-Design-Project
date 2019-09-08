@@ -1,4 +1,4 @@
-package com.k3.juniordesigndemo.controller;
+package com.k3.juniordesigndemo.controller.slides;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

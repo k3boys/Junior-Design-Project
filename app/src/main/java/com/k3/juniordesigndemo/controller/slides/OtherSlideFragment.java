@@ -1,4 +1,4 @@
-package com.k3.juniordesigndemo.controller;
+package com.k3.juniordesigndemo.controller.slides;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,11 +8,11 @@ import android.view.ViewGroup;
 
 import com.k3.juniordesigndemo.R;
 
-public class HomeIssuesSlideFragment extends Fragment {
+public class OtherSlideFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home_issues_slide, container, false);
+        return inflater.inflate(R.layout.fragment_other_issues_slide, container, false);
     }
 }
