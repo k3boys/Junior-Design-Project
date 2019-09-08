@@ -4,11 +4,66 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="street_issues_slide_title">Street Issues</string>
 
+    <!--report categories-->
+    <string name="street_reports_category_title">Street Reports</string>
+    <string name="home_reports_category_title">Home Reports</string>
+    <string name="yard_reports_category_title">Yard Reports</string>
+    <string name="vehicle_reports_category_title">Vehicle Reports</string>
+    <string name="trash_reports_category_title">Trash Reports</string>
+    <string name="environmental_reports_category_title">Environmental Reports</string>
+    <string name="miscellaneous_reports_category_title">Miscellaneous Reports</string>
+    <string name="other_reports_category_title">Other Reports</string>
+
+    <!--street reports-->
+    <string name="street_status_report">Street in Disrepair</string>
+    <string name="sidewalk_status_report">No Sidewalks</string>
+    <string name="storm_drain_status_report">Storm Drain Blocked</string>
+    <string name="fire_hydrant_status_report">Fire Hydrant Out of Service</string>
+    <!--house reports-->
+    <string name="house_status_report">Housing Condition Issue</string>
+    <string name="house_disrepair_report">Home in Disrepair</string>
+    <string name="house_barred_report">Bars on Doors or Windows</string>
+    <string name="broken_window_report">Broken Windows</string>
+    <string name="house_abandoned_report">Abandoned House</string>
+    <string name="house_for_sale_report">House for Sale</string>
+    <string name="house_renovation_report">Evidence of Renovation</string>
+    <string name="solar_adaptation_report">Solar Adaptation</string>
+    <!--yard reports-->
+    <string name="landscaping_report">Landscaping Issue</string>
+    <string name="front_yard_items_report">Abandoned Appliance/Junk in Yard</string>
+    <string name="back_yard_items_report">Backyard Junk</string>
+    <!--vehicle reports-->
+    <string name="car_in_street_report">Abandoned Car in Street</string>
+    <string name="car_in_driveway_report">Abandoned Car in Driveway</string>
+    <string name="car_in_yard">Cars Parked in Front Yard</string>
+    <string name="car_other_report">Abandoned Car Anywhere</string>
+    <string name="oversized_vehicle_report">Oversized Vehicle</string>
+    <!--trash reports-->
+    <string name="trash_report">Trash and/or Junk Pile</string>
+    <string name="debris_report">Debris</string>
+    <!--environmental reports-->
+    <string name="standing_water_report">Standing Water</string>
+    <string name="unused_space_report">Unused Green Space</string>
+    <string name="tree_loss_report">Loss of Trees</string>
+    <!--miscellaneous reports-->
+    <string name="beautification_report">Beautification Needed</string>
+    <string name="abandoned_equipment_report">Abandoned Equipment</string>
+    <string name="gentrification_report">Gentrification</string>
+    <string name="noise_report">Abnormal Noise Levels</string>
+    <!--other reports-->
+    <string name="basketball_goal_report">Basketball Goals</string>
+    <string name="equipment_storage_report">Equipment Storage</string>
+    <string name="vacant_lot_report">Vacant Lot</string>
+    <string name="bus_stop_report">Bus Stop</string>
+    <string name="benchmark_report">Good Practice/Benchmark</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string-array name="categories_array">
         <item>Broken window</item>
         <item>Trash</item>
         <item>Abandoned car</item>
     </string-array>
+
+
 
 </resources>

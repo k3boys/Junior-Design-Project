@@ -1,18 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="20dp"
-    android:paddingBottom="20dp"
-    android:paddingStart="20dp"
-    android:paddingEnd="20dp"
-    android:orientation="vertical">
+    tools:context=".controller.slides.VehicleIssuesSlideFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Vehicle"/>
+        android:id="@+id/slideTitle"
 
-</LinearLayout>
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        android:layout_margin="24dp"
+
+        style="@style/AppSlideTitle"
+        android:textAlignment="center"
+
+        android:text="@string/vehicle_reports_category_title"/>
+
+    <LinearLayout
+        android:id="@+id/issueList"
+
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:layout_margin="24dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.0"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/slideTitle"
+        app:layout_constraintVertical_bias="1.0">
+
+        <CheckBox
+            android:id="@+id/streetCarCheckbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/category_background"
+            android:layoutDirection="rtl"
+            android:paddingStart="16dp"
+
+            android:paddingEnd="16dp"
+            android:text="@string/car_in_street_report" />
+
+        <CheckBox
+            android:id="@+id/drivewayCarCheckbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/category_background"
+            android:layoutDirection="rtl"
+            android:paddingStart="16dp"
+
+            android:paddingEnd="16dp"
+            android:text="@string/car_in_driveway_report" />
+
+        <CheckBox
+            android:id="@+id/carAbandonedCheckbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/category_background"
+            android:layoutDirection="rtl"
+            android:paddingStart="16dp"
+
+            android:paddingEnd="16dp"
+            android:text="@string/car_other_report" />
+
+        <CheckBox
+            android:id="@+id/yardCarCheckbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/category_background"
+            android:layoutDirection="rtl"
+            android:paddingStart="16dp"
+
+            android:paddingEnd="16dp"
+            android:text="@string/car_in_yard" />
+
+        <CheckBox
+            android:id="@+id/carOversizedCheckbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/category_background"
+            android:layoutDirection="rtl"
+            android:paddingStart="16dp"
+
+            android:paddingEnd="16dp"
+            android:text="@string/oversized_vehicle_report" />
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
