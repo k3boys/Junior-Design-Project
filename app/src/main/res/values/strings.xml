@@ -2,6 +2,7 @@
     <string name="app_name">Junior Design Demo</string>
     <string name="title_activity_view">Map</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="street_issues_slide_title">Street Issues</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string-array name="categories_array">
