@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "384307097591",
+    "firebase_url": "https://jr-design.firebaseio.com",
+    "project_id": "jr-design",
+    "storage_bucket": "jr-design.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:384307097591:android:e0ee6e5c3f5d50611ec8f2",
+        "android_client_info": {
+          "package_name": "com.k3.juniordesigndemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "384307097591-p3bftr2odnpjln2g05f5gkejv685v1vi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL-4XjwE8_3uHam7i19yEHy1XkipAvghM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "384307097591-p3bftr2odnpjln2g05f5gkejv685v1vi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
