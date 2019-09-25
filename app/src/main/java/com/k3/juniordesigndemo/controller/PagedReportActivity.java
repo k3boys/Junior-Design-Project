@@ -3,6 +3,9 @@ package com.k3.juniordesigndemo.controller;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -15,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.k3.juniordesigndemo.R;
@@ -155,6 +159,7 @@ public class PagedReportActivity extends AppCompatActivity {
 
                 currFrag.saveBoxes();
                 Singleton.submitReport();
+
 
                 Intent intent = new Intent(getApplicationContext(), MapActivity.class);
                 intent.putExtra("submitted-report", true); //usado pra mostrar toastzinho dizendo report submitted sla

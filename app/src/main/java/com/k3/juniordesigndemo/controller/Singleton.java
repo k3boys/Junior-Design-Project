@@ -1,6 +1,8 @@
 package com.k3.juniordesigndemo.controller;
 
 
+import android.provider.ContactsContract;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -16,7 +18,9 @@ import java.util.Map;
 public class Singleton {
     static Report report = new Report("");
 
-    static DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+    static DatabaseReference db = getDatabase();
+
+
     public static void newReport(String address) {
         report = new Report(address);
     }
@@ -33,5 +37,11 @@ public class Singleton {
                 report.details = databaseError.getMessage();
             }
         });
+    }
+
+    public static DatabaseReference getDatabase() {
+        FirebaseDatabase dba = FirebaseDatabase.getInstance();
+        dba.setPersistenceEnabled(true);
+        return dba.getReference();
     }
 }
