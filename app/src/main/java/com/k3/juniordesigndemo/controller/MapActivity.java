@@ -99,7 +99,11 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
             == PackageManager.PERMISSION_GRANTED) {
             LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
             Location loc = locationManager.getLastKnownLocation(locationManager.getBestProvider(new Criteria(), false));
-            location = new LatLng(loc.getLatitude(), loc.getLongitude());
+            if (loc == null) {
+                location = new LatLng(model.getLastReportLat(), model.getLastReportLong());
+            } else {
+                location = new LatLng(loc.getLatitude(), loc.getLongitude());
+            }
         } else {
             location = new LatLng(model.getLastReportLat(), model.getLastReportLong());
         }
