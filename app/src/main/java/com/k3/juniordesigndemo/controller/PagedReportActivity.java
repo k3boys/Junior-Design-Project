@@ -77,7 +77,7 @@ public class PagedReportActivity extends AppCompatActivity {
         };
 
         // Disable swiping
-        viewPager.setOnTouchListener((v, event) -> true);
+        //viewPager.setOnTouchListener((v, event) -> true);
 
         // Set viewPager's adapter
         viewPager.setAdapter(new ScreenSlidePagerAdapter());
