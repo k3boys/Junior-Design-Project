@@ -20,7 +20,7 @@ public class Report {
         int addrHash = this.address.hashCode();
         int dtHash = this.datetime.hashCode();
         int locHash = this.location.hashCode();
-        return addrHash * dtHash * locHash;
+        return addrHash + dtHash + locHash;
     }
 
     String address;
