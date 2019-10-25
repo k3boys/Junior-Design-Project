@@ -47,7 +47,9 @@
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+
+            style="@style/AppSlideContent"
 
             android:background="@drawable/category_background"
             android:text="@string/basketball_goal_report"/>
@@ -60,7 +62,9 @@
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+
+            style="@style/AppSlideContent"
 
             android:background="@drawable/category_background"
             android:text="@string/equipment_storage_report"/>
@@ -73,7 +77,9 @@
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+
+            style="@style/AppSlideContent"
 
             android:background="@drawable/category_background"
             android:text="@string/vacant_lot_report"/>
@@ -86,7 +92,9 @@
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+
+            style="@style/AppSlideContent"
 
             android:background="@drawable/category_background"
             android:text="@string/bus_stop_report"/>
@@ -99,7 +107,9 @@
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+
+            style="@style/AppSlideContent"
 
             android:background="@drawable/category_background"
             android:text="@string/benchmark_report"/>

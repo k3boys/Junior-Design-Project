@@ -47,7 +47,9 @@
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+
+            style="@style/AppSlideContent"
 
             android:background="@drawable/category_background"
             android:text="@string/house_status_report"/>
@@ -60,7 +62,9 @@
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+
+            style="@style/AppSlideContent"
 
             android:background="@drawable/category_background"
             android:text="@string/house_disrepair_report"/>
@@ -73,7 +77,9 @@
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+
+            style="@style/AppSlideContent"
 
             android:background="@drawable/category_background"
             android:text="@string/house_barred_report"/>
@@ -86,7 +92,9 @@
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+
+            style="@style/AppSlideContent"
 
             android:background="@drawable/category_background"
             android:text="@string/broken_window_report"/>
@@ -99,7 +107,9 @@
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+
+            style="@style/AppSlideContent"
 
             android:background="@drawable/category_background"
             android:text="@string/house_abandoned_report"/>
@@ -112,7 +122,9 @@
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+
+            style="@style/AppSlideContent"
 
             android:background="@drawable/category_background"
             android:text="@string/house_for_sale_report"/>
@@ -125,7 +137,9 @@
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+
+            style="@style/AppSlideContent"
 
             android:background="@drawable/category_background"
             android:text="@string/house_renovation_report"/>
@@ -138,7 +152,9 @@
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+
+            style="@style/AppSlideContent"
 
             android:background="@drawable/category_background"
             android:text="@string/solar_adaptation_report"/>

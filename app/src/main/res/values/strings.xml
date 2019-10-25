@@ -30,7 +30,7 @@
     <string name="solar_adaptation_report">Solar Adaptation</string>
     <!--yard reports-->
     <string name="landscaping_report">Landscaping Issue</string>
-    <string name="front_yard_items_report">Abandoned Appliance/Junk in Yard</string>
+    <string name="front_yard_items_report">Junk in Yard</string>
     <string name="back_yard_items_report">Backyard Junk</string>
     <!--vehicle reports-->
     <string name="car_in_street_report">Abandoned Car in Street</string>

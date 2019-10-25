@@ -45,12 +45,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:layout_marginBottom="4dp"
             android:background="@drawable/category_background"
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
-
             android:paddingEnd="16dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+
+            style="@style/AppSlideContent"
+
             android:text="@string/car_in_street_report" />
 
         <CheckBox
@@ -58,12 +60,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:layout_marginBottom="4dp"
             android:background="@drawable/category_background"
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
-
             android:paddingEnd="16dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+
+            style="@style/AppSlideContent"
+
             android:text="@string/car_in_driveway_report" />
 
         <CheckBox
@@ -71,12 +75,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:layout_marginBottom="4dp"
             android:background="@drawable/category_background"
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
-
             android:paddingEnd="16dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+
+            style="@style/AppSlideContent"
+
             android:text="@string/car_other_report" />
 
         <CheckBox
@@ -84,12 +90,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:layout_marginBottom="4dp"
             android:background="@drawable/category_background"
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
-
             android:paddingEnd="16dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+
+            style="@style/AppSlideContent"
+
             android:text="@string/car_in_yard" />
 
         <CheckBox
@@ -97,12 +105,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:layout_marginBottom="4dp"
             android:background="@drawable/category_background"
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
-
             android:paddingEnd="16dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+
+            style="@style/AppSlideContent"
+
             android:text="@string/oversized_vehicle_report" />
     </LinearLayout>
 

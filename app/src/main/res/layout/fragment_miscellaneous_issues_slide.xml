@@ -47,7 +47,9 @@
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+
+            style="@style/AppSlideContent"
 
             android:background="@drawable/category_background"
             android:text="@string/beautification_report"/>
@@ -60,7 +62,9 @@
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+
+            style="@style/AppSlideContent"
 
             android:background="@drawable/category_background"
             android:text="@string/abandoned_equipment_report"/>
@@ -73,7 +77,9 @@
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+
+            style="@style/AppSlideContent"
 
             android:background="@drawable/category_background"
             android:text="@string/gentrification_report"/>
@@ -86,7 +92,9 @@
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+
+            style="@style/AppSlideContent"
 
             android:background="@drawable/category_background"
             android:text="@string/noise_report"/>
