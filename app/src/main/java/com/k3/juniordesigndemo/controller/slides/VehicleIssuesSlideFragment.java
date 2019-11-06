@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.EditText;
 
 import com.k3.juniordesigndemo.R;
 import com.k3.juniordesigndemo.controller.Singleton;
@@ -17,13 +18,12 @@ public class VehicleIssuesSlideFragment extends MyFragment {
     CheckBox abandoned_driveway;
     CheckBox abandoned_other;
     CheckBox oversized;
-    CheckBox num_vehicles;
+    EditText num_vehicles;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         return inflater.inflate(R.layout.fragment_vehicle_issues_slide, container, false);
     }
 
@@ -36,7 +36,7 @@ public class VehicleIssuesSlideFragment extends MyFragment {
         abandoned_driveway = view.findViewById(R.id.drivewayCarCheckbox);
         abandoned_other = view.findViewById(R.id.carAbandonedCheckbox);
         oversized = view.findViewById(R.id.carOversizedCheckbox);
-        num_vehicles = view.findViewById(R.id.yardCarCheckbox);
+        num_vehicles = view.findViewById(R.id.yardCarEditText);
 
     }
 
@@ -47,7 +47,7 @@ public class VehicleIssuesSlideFragment extends MyFragment {
         abandoned_driveway.setChecked(currRep.isVehicle_abandoned_driveway());
         abandoned_other.setChecked(currRep.isVehicle_abandoned_other());
         oversized.setChecked(currRep.isVehicle_oversized());
-        num_vehicles.setChecked(currRep.getVehicle_parked() == 1);
+        num_vehicles.setText(String.valueOf(currRep.getVehicle_parked()));
 
     }
 
@@ -58,6 +58,6 @@ public class VehicleIssuesSlideFragment extends MyFragment {
         currRep.setVehicle_abandoned_driveway(abandoned_driveway.isChecked());
         currRep.setVehicle_abandoned_other(abandoned_other.isChecked());
         currRep.setVehicle_oversized(oversized.isChecked());
-        currRep.setVehicle_parked(num_vehicles.isChecked()? 1:0);
+        currRep.setVehicle_parked(Integer.parseInt(num_vehicles.getText().toString()));
     }
 }

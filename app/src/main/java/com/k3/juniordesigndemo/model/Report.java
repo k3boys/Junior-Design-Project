@@ -77,11 +77,11 @@ public class Report {
         this.home_bars = home_bars;
     }
 
-    public boolean isHome_broken_windows() {
+    public int isHome_broken_windows() {
         return home_broken_windows;
     }
 
-    public void setHome_broken_windows(boolean home_broken_windows) {
+    public void setHome_broken_windows(int home_broken_windows) {
         this.home_broken_windows = home_broken_windows;
     }
 
@@ -141,11 +141,11 @@ public class Report {
         this.yard_back_junk = yard_back_junk;
     }
 
-    public boolean isYard_landscaping() {
+    public int getYard_landscaping() {
         return yard_landscaping;
     }
 
-    public void setYard_landscaping(boolean yard_landscaping) {
+    public void setYard_landscaping(int yard_landscaping) {
         this.yard_landscaping = yard_landscaping;
     }
 
@@ -316,7 +316,7 @@ public class Report {
 
     boolean home_abandoned;
     boolean home_bars;
-    boolean home_broken_windows;
+    int home_broken_windows;
     int home_condition;
     boolean home_disrepair;
     boolean home_renovated;
@@ -325,7 +325,7 @@ public class Report {
 
     boolean yard_abandoned_junk;
     boolean yard_back_junk;
-    boolean yard_landscaping;
+    int yard_landscaping;
 
     boolean vehicle_abandoned_driveway;
     boolean vehicle_abandoned_other;
