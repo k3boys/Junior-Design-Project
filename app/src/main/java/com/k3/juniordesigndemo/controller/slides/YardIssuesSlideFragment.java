@@ -14,40 +14,56 @@ import com.k3.juniordesigndemo.model.Report;
 public class YardIssuesSlideFragment extends MyFragment {
 
     CheckBox landscaping;
-    CheckBox abandoned_stuff;
-    CheckBox backyard_junk;
+    CheckBox abandoned_appliance;
+    CheckBox abandoned_equipment;
+    CheckBox trash;
+    CheckBox debris;
+    CheckBox standing_water;
+    CheckBox unused_green;
+    CheckBox tree_loss;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
         return inflater.inflate(R.layout.fragment_yard_issues_slide, container, false);
     }
 
     @Override
     public void onViewCreated (View view,
                                Bundle savedInstanceState) {
-        landscaping = view.findViewById(R.id.landscapingIssueCheckbox);
-        abandoned_stuff = view.findViewById(R.id.frontTrashCheckbox);
-        backyard_junk = view.findViewById(R.id.backTrashCheckbox);
-
-
+        landscaping = view.findViewById(R.id.landscapingCheckbox);
+        abandoned_appliance = view.findViewById(R.id.abandonedApplianceCheckbox);
+        abandoned_equipment = view.findViewById(R.id.abandonedEquipmentCheckbox);
+        trash = view.findViewById(R.id.trashCheckbox);
+        debris = view.findViewById(R.id.debrisCheckbox);
+        standing_water = view.findViewById(R.id.standingWaterCheckbox);
+        unused_green = view.findViewById(R.id.unusedGreenCheckbox);
+        tree_loss = view.findViewById(R.id.treeLossCheckbox);
     }
 
     @Override
     public void getBoxes() {
         Report currRep = Singleton.getReport();
-        landscaping.setChecked(currRep.isYard_landscaping());
-        abandoned_stuff.setChecked(currRep.isYard_abandoned_junk());
-        backyard_junk.setChecked(currRep.isYard_back_junk());
+        landscaping.setChecked(currRep.isYard_landscaping() == 1);
+        abandoned_appliance.setChecked(currRep.isYard_abandoned_appliance());
+        abandoned_equipment.setChecked(currRep.isYard_abandoned_equipment());
+        trash.setChecked(currRep.isYard_trash());
+        debris.setChecked(currRep.isYard_debris());
+        standing_water.setChecked(currRep.isYard_standing_water());
+        unused_green.setChecked(currRep.isYard_unused_green());
+        tree_loss.setChecked(currRep.isYard_tree_loss());
     }
 
     @Override
     public void saveBoxes() {
         Report currRep = Singleton.getReport();
-        currRep.setYard_landscaping(landscaping.isChecked());
-        currRep.setYard_abandoned_junk(abandoned_stuff.isChecked());
-        currRep.setYard_back_junk(backyard_junk.isChecked());
+        currRep.setYard_landscaping(landscaping.isChecked()? 1:0);
+        currRep.setYard_abandoned_appliance(abandoned_appliance.isChecked());
+        currRep.setYard_abandoned_equipment(abandoned_equipment.isChecked());
+        currRep.setYard_trash(trash.isChecked());
+        currRep.setYard_debris(debris.isChecked());
+        currRep.setYard_standing_water(standing_water.isChecked());
+        currRep.setYard_unused_green(unused_green.isChecked());
+        currRep.setYard_tree_loss(tree_loss.isChecked());
     }
 }

@@ -12,11 +12,15 @@ import com.k3.juniordesigndemo.controller.Singleton;
 import com.k3.juniordesigndemo.model.Report;
 
 public class MiscellaneousIssuesSlideFragment extends MyFragment {
+    CheckBox need_beautification;
+    CheckBox gentrification;
+    CheckBox noise;
+    CheckBox basketball_goals;
+    CheckBox equipment_storage;
+    CheckBox vacant_lot;
+    CheckBox bus_stop;
+    CheckBox benchmark;
 
-    CheckBox misc_abandoned_eqpt;
-    CheckBox misc_gentrification;
-    CheckBox misc_need_beautification;
-    CheckBox misc_noise;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -24,34 +28,41 @@ public class MiscellaneousIssuesSlideFragment extends MyFragment {
         return inflater.inflate(R.layout.fragment_miscellaneous_issues_slide, container, false);
     }
 
-
     public void onViewCreated (View view,
                                Bundle savedInstanceState) {
 
-
-        misc_abandoned_eqpt = view.findViewById(R.id.abandonedEquipmentCheckbox);
-        misc_gentrification = view.findViewById(R.id.gentrificationCheckbox);
-        misc_need_beautification = view.findViewById(R.id.beautificationCheckbox);
-        misc_noise = view.findViewById(R.id.noiseCheckbox);
-
+        need_beautification = view.findViewById(R.id.beautificationCheckbox);
+        gentrification = view.findViewById(R.id.gentrificationCheckbox);
+        noise = view.findViewById(R.id.noiseCheckbox);
+        basketball_goals = view.findViewById(R.id.basketballGoalCheckbox);
+        equipment_storage = view.findViewById(R.id.equipmentStorageCheckbox);
+        vacant_lot = view.findViewById(R.id.vacantLotCheckbox);
+        bus_stop = view.findViewById(R.id.busStopCheckbox);
+        benchmark = view.findViewById(R.id.benchmarkCheckbox);
     }
 
     @Override
     public void getBoxes() {
         Report currRep = Singleton.getReport();
-        misc_abandoned_eqpt.setChecked(currRep.isMisc_abandoned_eqpt());
-        misc_gentrification.setChecked(currRep.isMisc_gentrification());
-        misc_need_beautification.setChecked(currRep.isMisc_need_beautification());
-        misc_noise.setChecked(currRep.isMisc_noise());
-
+        need_beautification.setChecked(currRep.isMisc_need_beautification());
+        gentrification.setChecked(currRep.isMisc_gentrification());
+        noise.setChecked(currRep.isMisc_noise());
+        basketball_goals.setChecked(currRep.isMisc_basketball_goals());
+        equipment_storage.setChecked(currRep.isMisc_equipment_storage());
+        vacant_lot.setChecked(currRep.isMisc_vacant_lot());
+        bus_stop.setChecked(currRep.isMisc_bus_stop());
+        benchmark.setChecked(currRep.isMisc_benchmark());
     }
 
     @Override
     public void saveBoxes() {
         Report currRep = Singleton.getReport();
-        currRep.setMisc_abandoned_eqpt(misc_abandoned_eqpt.isChecked());
-        currRep.setMisc_gentrification(misc_gentrification.isChecked());
-        currRep.setMisc_need_beautification(misc_need_beautification.isChecked());
-        currRep.setMisc_noise(misc_noise.isChecked());
+        currRep.setMisc_need_beautification(need_beautification.isChecked());
+        currRep.setMisc_gentrification(gentrification.isChecked());
+        currRep.setMisc_noise(noise.isChecked());
+        currRep.setMisc_basketball_goals(basketball_goals.isChecked());
+        currRep.setMisc_equipment_storage(equipment_storage.isChecked());
+        currRep.setMisc_bus_stop(bus_stop.isChecked());
+        currRep.setMisc_benchmark(benchmark.isChecked());
     }
 }

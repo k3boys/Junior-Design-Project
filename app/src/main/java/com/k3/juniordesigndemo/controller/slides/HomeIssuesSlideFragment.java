@@ -54,7 +54,7 @@ public class HomeIssuesSlideFragment extends MyFragment {
         Report currRep = Singleton.getReport();
         home_abandoned.setChecked(currRep.isHome_abandoned());
         home_bars.setChecked(currRep.isHome_bars());
-        home_broken_windows.setChecked(currRep.isHome_broken_windows());
+        home_broken_windows.setChecked(currRep.isHome_broken_windows() == 1);
         home_disrepair.setChecked(currRep.isHome_disrepair());
         home_condition.setChecked(currRep.getHome_condition() == 1);
         home_renovated.setChecked(currRep.isHome_renovated());
@@ -67,7 +67,7 @@ public class HomeIssuesSlideFragment extends MyFragment {
         Report currRep = Singleton.getReport();
         currRep.setHome_abandoned(home_abandoned.isChecked());
         currRep.setHome_bars(home_bars.isChecked());
-        currRep.setHome_broken_windows(home_broken_windows.isChecked());
+        currRep.setHome_broken_windows(home_broken_windows.isChecked()? 1:0);
         currRep.setHome_disrepair(home_disrepair.isChecked());
         currRep.setHome_condition(home_condition.isChecked()? 1:0);
         currRep.setHome_renovated(home_renovated.isChecked());

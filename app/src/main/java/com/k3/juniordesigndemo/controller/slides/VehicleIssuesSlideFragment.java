@@ -16,9 +16,8 @@ public class VehicleIssuesSlideFragment extends MyFragment {
     CheckBox abandoned_street;
     CheckBox abandoned_driveway;
     CheckBox abandoned_other;
+    CheckBox parked;
     CheckBox oversized;
-    CheckBox num_vehicles;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,9 +34,8 @@ public class VehicleIssuesSlideFragment extends MyFragment {
         abandoned_street = view.findViewById(R.id.streetCarCheckbox);
         abandoned_driveway = view.findViewById(R.id.drivewayCarCheckbox);
         abandoned_other = view.findViewById(R.id.carAbandonedCheckbox);
+        parked = view.findViewById(R.id.yardCarCheckbox);
         oversized = view.findViewById(R.id.carOversizedCheckbox);
-        num_vehicles = view.findViewById(R.id.yardCarCheckbox);
-
     }
 
     @Override
@@ -46,9 +44,8 @@ public class VehicleIssuesSlideFragment extends MyFragment {
         abandoned_street.setChecked(currRep.isVehicle_abandoned_street());
         abandoned_driveway.setChecked(currRep.isVehicle_abandoned_driveway());
         abandoned_other.setChecked(currRep.isVehicle_abandoned_other());
+        parked.setChecked(currRep.getVehicle_parked() == 1);
         oversized.setChecked(currRep.isVehicle_oversized());
-        num_vehicles.setChecked(currRep.getVehicle_parked() == 1);
-
     }
 
     @Override
@@ -57,7 +54,7 @@ public class VehicleIssuesSlideFragment extends MyFragment {
         currRep.setVehicle_abandoned_street(abandoned_street.isChecked());
         currRep.setVehicle_abandoned_driveway(abandoned_driveway.isChecked());
         currRep.setVehicle_abandoned_other(abandoned_other.isChecked());
+        currRep.setVehicle_parked(parked.isChecked()? 1:0);
         currRep.setVehicle_oversized(oversized.isChecked());
-        currRep.setVehicle_parked(num_vehicles.isChecked()? 1:0);
     }
 }

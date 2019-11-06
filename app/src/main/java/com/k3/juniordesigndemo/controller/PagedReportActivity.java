@@ -22,18 +22,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.k3.juniordesigndemo.R;
-import com.k3.juniordesigndemo.controller.slides.EnvironmentalIssuesSlideFragment;
 import com.k3.juniordesigndemo.controller.slides.HomeIssuesSlideFragment;
 import com.k3.juniordesigndemo.controller.slides.MiscellaneousIssuesSlideFragment;
 import com.k3.juniordesigndemo.controller.slides.MyFragment;
-import com.k3.juniordesigndemo.controller.slides.OtherSlideFragment;
 import com.k3.juniordesigndemo.controller.slides.StreetIssuesSlideFragment;
-import com.k3.juniordesigndemo.controller.slides.TrashIssuesSlideFragment;
 import com.k3.juniordesigndemo.controller.slides.VehicleIssuesSlideFragment;
 import com.k3.juniordesigndemo.controller.slides.YardIssuesSlideFragment;
 
 public class PagedReportActivity extends AppCompatActivity {
-
     // Activity components
     ViewPager viewPager;
     LinearLayout dotsLinearLayout;
@@ -51,12 +47,11 @@ public class PagedReportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_paged_report);
 
         Bundle extras = getIntent().getExtras();
+
         if (extras != null) {
             Singleton.newReport(extras.getString("ADDRESS"));
 
         }
-
-
 
         // Get activity components
         viewPager = findViewById(R.id.viewPager);
@@ -70,10 +65,7 @@ public class PagedReportActivity extends AppCompatActivity {
                 new HomeIssuesSlideFragment(),
                 new YardIssuesSlideFragment(),
                 new VehicleIssuesSlideFragment(),
-                new TrashIssuesSlideFragment(),
-                new EnvironmentalIssuesSlideFragment(),
-                new MiscellaneousIssuesSlideFragment(),
-                new OtherSlideFragment()
+                new MiscellaneousIssuesSlideFragment()
         };
 
         // Disable swiping
@@ -99,7 +91,9 @@ public class PagedReportActivity extends AppCompatActivity {
         if (currFrag != null && !flagInit) {
             currFrag.saveBoxes();
         }
+
         dotsLinearLayout.removeAllViews();
+
         for (int i = 0; i < slides.length; i++) {
             TextView dot = new TextView(this);
             dot.setText(Html.fromHtml("&#8226;"));
@@ -107,24 +101,25 @@ public class PagedReportActivity extends AppCompatActivity {
             dot.setTextColor(i == currSlide ? Color.LTGRAY : Color.DKGRAY);
             dotsLinearLayout.addView(dot);
         }
+
         if (currSlide == 0) prevButton.setVisibility(View.INVISIBLE);
         else if (currSlide == slides.length - 1) nextButton.setText("Submit");
         else {
             prevButton.setVisibility(View.VISIBLE);
             nextButton.setText("Next");
         }
+
         currFrag = slides[currSlide];
+
         if (!flagInit) {
 
             currFrag.getBoxes();
         }
 
         flagInit = false;
-
     }
 
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
-
         public ScreenSlidePagerAdapter() {
             super(getSupportFragmentManager());
         }
@@ -141,7 +136,6 @@ public class PagedReportActivity extends AppCompatActivity {
     }
 
     private class PrevButtonOnClickListener implements View.OnClickListener {
-
         @Override
         public void onClick(View v) {
             int prev = Math.max(viewPager.getCurrentItem() - 1, 0);
@@ -151,26 +145,22 @@ public class PagedReportActivity extends AppCompatActivity {
     }
 
     private class NextButtonOnClickListener implements View.OnClickListener {
-
         @Override
         public void onClick(View v) {
 
-            if (nextButton.getText() == "Submit") { //judeu posso fazer currSlide global tb sla
+            if (nextButton.getText() == "Submit") {
 
                 currFrag.saveBoxes();
                 Singleton.submitReport();
 
-
                 Intent intent = new Intent(getApplicationContext(), MapActivity.class);
-                intent.putExtra("submitted-report", true); //usado pra mostrar toastzinho dizendo report submitted sla
+                intent.putExtra("submitted-report", true);
                 startActivity(intent);
             } else {
                 int next = Math.min(viewPager.getCurrentItem() + 1, slides.length - 1);
                 viewPager.setCurrentItem(next);
                 updateNavigation(next);
-
             }
-
         }
     }
 }

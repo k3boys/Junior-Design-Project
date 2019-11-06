@@ -37,6 +37,14 @@ public class Report {
         this.street_disrepair = street_disrepair;
     }
 
+    public boolean isStreet_no_sidewalks() {
+        return street_no_sidewalks;
+    }
+
+    public void setStreet_no_sidewalks(boolean street_no_sidewalks) {
+        this.street_no_sidewalks = street_no_sidewalks;
+    }
+
     public boolean isStreet_drain_blocked() {
         return street_drain_blocked;
     }
@@ -51,38 +59,6 @@ public class Report {
 
     public void setStreet_hydrant_oos(boolean street_hydrant_oos) {
         this.street_hydrant_oos = street_hydrant_oos;
-    }
-
-    public boolean isStreet_no_sidewalks() {
-        return street_no_sidewalks;
-    }
-
-    public void setStreet_no_sidewalks(boolean street_no_sidewalks) {
-        this.street_no_sidewalks = street_no_sidewalks;
-    }
-
-    public boolean isHome_abandoned() {
-        return home_abandoned;
-    }
-
-    public void setHome_abandoned(boolean home_abandoned) {
-        this.home_abandoned = home_abandoned;
-    }
-
-    public boolean isHome_bars() {
-        return home_bars;
-    }
-
-    public void setHome_bars(boolean home_bars) {
-        this.home_bars = home_bars;
-    }
-
-    public boolean isHome_broken_windows() {
-        return home_broken_windows;
-    }
-
-    public void setHome_broken_windows(boolean home_broken_windows) {
-        this.home_broken_windows = home_broken_windows;
     }
 
     public int getHome_condition() {
@@ -101,12 +77,28 @@ public class Report {
         this.home_disrepair = home_disrepair;
     }
 
-    public boolean isHome_renovated() {
-        return home_renovated;
+    public boolean isHome_bars() {
+        return home_bars;
     }
 
-    public void setHome_renovated(boolean home_renovated) {
-        this.home_renovated = home_renovated;
+    public void setHome_bars(boolean home_bars) {
+        this.home_bars = home_bars;
+    }
+
+    public int isHome_broken_windows() {
+        return home_broken_windows;
+    }
+
+    public void setHome_broken_windows(int home_broken_windows) {
+        this.home_broken_windows = home_broken_windows;
+    }
+
+    public boolean isHome_abandoned() {
+        return home_abandoned;
+    }
+
+    public void setHome_abandoned(boolean home_abandoned) {
+        this.home_abandoned = home_abandoned;
     }
 
     public boolean isHome_selling() {
@@ -117,6 +109,14 @@ public class Report {
         this.home_selling = home_selling;
     }
 
+    public boolean isHome_renovated() {
+        return home_renovated;
+    }
+
+    public void setHome_renovated(boolean home_renovated) {
+        this.home_renovated = home_renovated;
+    }
+
     public boolean isHome_solar() {
         return home_solar;
     }
@@ -125,28 +125,76 @@ public class Report {
         this.home_solar = home_solar;
     }
 
-    public boolean isYard_abandoned_junk() {
-        return yard_abandoned_junk;
-    }
-
-    public void setYard_abandoned_junk(boolean yard_abandoned_junk) {
-        this.yard_abandoned_junk = yard_abandoned_junk;
-    }
-
-    public boolean isYard_back_junk() {
-        return yard_back_junk;
-    }
-
-    public void setYard_back_junk(boolean yard_back_junk) {
-        this.yard_back_junk = yard_back_junk;
-    }
-
-    public boolean isYard_landscaping() {
+    public int isYard_landscaping() {
         return yard_landscaping;
     }
 
-    public void setYard_landscaping(boolean yard_landscaping) {
+    public void setYard_landscaping(int yard_landscaping) {
         this.yard_landscaping = yard_landscaping;
+    }
+
+    public boolean isYard_abandoned_appliance() {
+        return yard_abandoned_appliance;
+    }
+
+    public void setYard_abandoned_appliance(boolean yard_abandoned_appliance) {
+        this.yard_abandoned_appliance = yard_abandoned_appliance;
+    }
+
+    public boolean isYard_abandoned_equipment() {
+        return yard_abandoned_equipment;
+    }
+
+    public void setYard_abandoned_equipment(boolean yard_abandoned_equipment) {
+        this.yard_abandoned_equipment = yard_abandoned_equipment;
+    }
+
+    public boolean isYard_trash() {
+        return yard_trash;
+    }
+
+    public void setYard_trash(boolean yard_trash) {
+        this.yard_trash = yard_trash;
+    }
+
+    public boolean isYard_debris() {
+        return yard_debris;
+    }
+
+    public void setYard_debris(boolean yard_debris) {
+        this.yard_debris = yard_debris;
+    }
+
+    public boolean isYard_standing_water() {
+        return yard_standing_water;
+    }
+
+    public void setYard_standing_water(boolean yard_standing_water) {
+        this.yard_standing_water = yard_standing_water;
+    }
+
+    public boolean isYard_unused_green() {
+        return yard_unused_green;
+    }
+
+    public void setYard_unused_green(boolean yard_unused_green) {
+        this.yard_unused_green = yard_unused_green;
+    }
+
+    public boolean isYard_tree_loss() {
+        return yard_tree_loss;
+    }
+
+    public void setYard_tree_loss(boolean yard_tree_loss) {
+        this.yard_tree_loss = yard_tree_loss;
+    }
+
+    public boolean isVehicle_abandoned_street() {
+        return vehicle_abandoned_street;
+    }
+
+    public void setVehicle_abandoned_street(boolean vehicle_abandoned_street) {
+        this.vehicle_abandoned_street = vehicle_abandoned_street;
     }
 
     public boolean isVehicle_abandoned_driveway() {
@@ -165,12 +213,12 @@ public class Report {
         this.vehicle_abandoned_other = vehicle_abandoned_other;
     }
 
-    public boolean isVehicle_abandoned_street() {
-        return vehicle_abandoned_street;
+    public int getVehicle_parked() {
+        return vehicle_parked;
     }
 
-    public void setVehicle_abandoned_street(boolean vehicle_abandoned_street) {
-        this.vehicle_abandoned_street = vehicle_abandoned_street;
+    public void setVehicle_parked(int vehicle_parked) {
+        this.vehicle_parked = vehicle_parked;
     }
 
     public boolean isVehicle_oversized() {
@@ -181,60 +229,12 @@ public class Report {
         this.vehicle_oversized = vehicle_oversized;
     }
 
-    public int getVehicle_parked() {
-        return vehicle_parked;
+    public boolean isMisc_need_beautification() {
+        return misc_need_beautification;
     }
 
-    public void setVehicle_parked(int vehicle_parked) {
-        this.vehicle_parked = vehicle_parked;
-    }
-
-    public boolean isEnvironment_debris() {
-        return environment_debris;
-    }
-
-    public void setEnvironment_debris(boolean environment_debris) {
-        this.environment_debris = environment_debris;
-    }
-
-    public boolean isEnvironment_standing_water() {
-        return environment_standing_water;
-    }
-
-    public void setEnvironment_standing_water(boolean environment_standing_water) {
-        this.environment_standing_water = environment_standing_water;
-    }
-
-    public boolean isEnvironment_trash() {
-        return environment_trash;
-    }
-
-    public void setEnvironment_trash(boolean environment_trash) {
-        this.environment_trash = environment_trash;
-    }
-
-    public boolean isEnvironment_tree_loss() {
-        return environment_tree_loss;
-    }
-
-    public void setEnvironment_tree_loss(boolean environment_tree_loss) {
-        this.environment_tree_loss = environment_tree_loss;
-    }
-
-    public boolean isEnvironment_unused_green() {
-        return environment_unused_green;
-    }
-
-    public void setEnvironment_unused_green(boolean environment_unused_green) {
-        this.environment_unused_green = environment_unused_green;
-    }
-
-    public boolean isMisc_abandoned_eqpt() {
-        return misc_abandoned_eqpt;
-    }
-
-    public void setMisc_abandoned_eqpt(boolean misc_abandoned_eqpt) {
-        this.misc_abandoned_eqpt = misc_abandoned_eqpt;
+    public void setMisc_need_beautification(boolean misc_need_beautification) {
+        this.misc_need_beautification = misc_need_beautification;
     }
 
     public boolean isMisc_gentrification() {
@@ -245,14 +245,6 @@ public class Report {
         this.misc_gentrification = misc_gentrification;
     }
 
-    public boolean isMisc_need_beautification() {
-        return misc_need_beautification;
-    }
-
-    public void setMisc_need_beautification(boolean misc_need_beautification) {
-        this.misc_need_beautification = misc_need_beautification;
-    }
-
     public boolean isMisc_noise() {
         return misc_noise;
     }
@@ -261,94 +253,81 @@ public class Report {
         this.misc_noise = misc_noise;
     }
 
-    public boolean isOther_basketball_goals() {
-        return other_basketball_goals;
+    public boolean isMisc_basketball_goals() {
+        return misc_basketball_goals;
     }
 
-    public void setOther_basketball_goals(boolean other_basketball_goals) {
-        this.other_basketball_goals = other_basketball_goals;
+    public void setMisc_basketball_goals(boolean misc_basketball_goals) {
+        this.misc_basketball_goals = misc_basketball_goals;
     }
 
-    public boolean isOther_benchmark() {
-        return other_benchmark;
+    public boolean isMisc_equipment_storage() {
+        return misc_equipment_storage;
     }
 
-    public void setOther_benchmark(boolean other_benchmark) {
-        this.other_benchmark = other_benchmark;
+    public void setMisc_equipment_storage(boolean misc_equipment_storage) {
+        this.misc_equipment_storage = misc_equipment_storage;
     }
 
-    public boolean isOther_bus_stop() {
-        return other_bus_stop;
-    }
-
-    public void setOther_bus_stop(boolean other_bus_stop) {
-        this.other_bus_stop = other_bus_stop;
-    }
-
-    public boolean isOther_eqpt_storage() {
-        return other_eqpt_storage;
-    }
-
-    public void setOther_eqpt_storage(boolean other_eqpt_storage) {
-        this.other_eqpt_storage = other_eqpt_storage;
-    }
-
-    public boolean isOther_solar() {
-        return other_solar;
-    }
-
-    public void setOther_solar(boolean other_solar) {
-        this.other_solar = other_solar;
-    }
-
-    public boolean isOther_vacant_lot() {
-        return other_vacant_lot;
+    public boolean isMisc_vacant_lot() {
+        return misc_vacant_lot;
     }
 
     public void setOther_vacant_lot(boolean other_vacant_lot) {
-        this.other_vacant_lot = other_vacant_lot;
+        this.misc_vacant_lot = misc_vacant_lot;
+    }
+
+    public boolean isMisc_bus_stop() {
+        return misc_bus_stop;
+    }
+
+    public void setMisc_bus_stop(boolean misc_bus_stop) {
+        this.misc_bus_stop = misc_bus_stop;
+    }
+
+    public boolean isMisc_benchmark() {
+        return misc_benchmark;
+    }
+
+    public void setMisc_benchmark(boolean misc_benchmark) {
+        this.misc_benchmark = misc_benchmark;
     }
 
     boolean street_disrepair;
+    boolean street_no_sidewalks;
     boolean street_drain_blocked;
     boolean street_hydrant_oos;
-    boolean street_no_sidewalks;
 
-    boolean home_abandoned;
-    boolean home_bars;
-    boolean home_broken_windows;
     int home_condition;
     boolean home_disrepair;
-    boolean home_renovated;
+    boolean home_bars;
+    int home_broken_windows;
+    boolean home_abandoned;
     boolean home_selling;
+    boolean home_renovated;
     boolean home_solar;
 
-    boolean yard_abandoned_junk;
-    boolean yard_back_junk;
-    boolean yard_landscaping;
+    int yard_landscaping;
+    boolean yard_abandoned_appliance;
+    boolean yard_abandoned_equipment;
+    boolean yard_trash;
+    boolean yard_debris;
+    boolean yard_standing_water;
+    boolean yard_unused_green;
+    boolean yard_tree_loss;
 
+    boolean vehicle_abandoned_street;
     boolean vehicle_abandoned_driveway;
     boolean vehicle_abandoned_other;
-    boolean vehicle_abandoned_street;
-    boolean vehicle_oversized;
     int vehicle_parked;
+    boolean vehicle_oversized;
 
-    boolean environment_debris;
-    boolean environment_standing_water;
-    boolean environment_trash;
-    boolean environment_tree_loss;
-    boolean environment_unused_green;
-
-    boolean misc_abandoned_eqpt;
-    boolean misc_gentrification;
     boolean misc_need_beautification;
+    boolean misc_gentrification;
     boolean misc_noise;
-
-    boolean other_basketball_goals;
-    boolean other_benchmark;
-    boolean other_bus_stop;
-    boolean other_eqpt_storage;
-    boolean other_solar;
-    boolean other_vacant_lot;
-
+    boolean misc_basketball_goals;
+    boolean misc_equipment_storage;
+    boolean misc_vacant_lot;
+    boolean misc_bus_stop;
+    boolean misc_benchmark;
 }
