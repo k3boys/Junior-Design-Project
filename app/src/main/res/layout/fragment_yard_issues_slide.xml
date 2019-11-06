@@ -39,20 +39,30 @@
         android:orientation="vertical"
         >
 
-        <CheckBox
-            android:id="@+id/landscapingIssueCheckbox"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:layoutDirection="rtl"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
-
-            style="@style/AppSlideContent"
+            android:layout_height="31dp"
 
             android:background="@drawable/category_background"
-            android:text="@string/landscaping_report"/>
+            android:paddingEnd="-8dp"
+            android:paddingStart="16dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/house_status_report"
+                style="@style/AppSlideContent"
+                android:gravity="center_vertical"/>
+
+            <Spinner
+                android:id="@+id/landscapingSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"/>
+
+        </LinearLayout>
 
         <CheckBox
             android:id="@+id/frontTrashCheckbox"
