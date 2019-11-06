@@ -12,7 +12,6 @@ import com.k3.juniordesigndemo.controller.Singleton;
 import com.k3.juniordesigndemo.model.Report;
 
 public class HomeIssuesSlideFragment extends MyFragment {
-
     CheckBox home_abandoned;
     CheckBox home_bars;
     CheckBox home_broken_windows;
@@ -21,6 +20,7 @@ public class HomeIssuesSlideFragment extends MyFragment {
     CheckBox home_renovated;
     CheckBox home_selling;
     CheckBox home_solar;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -28,7 +28,6 @@ public class HomeIssuesSlideFragment extends MyFragment {
 
         return inflater.inflate(R.layout.fragment_home_issues_slide, container, false);
     }
-
 
     public void onViewCreated (View view,
                                Bundle savedInstanceState) {
@@ -41,13 +40,7 @@ public class HomeIssuesSlideFragment extends MyFragment {
         home_renovated = view.findViewById(R.id.renovationCheckbox);
         home_selling = view.findViewById(R.id.forSaleCheckbox);
         home_solar = view.findViewById(R.id.solarCheckbox);
-
-
-
-
     }
-
-
 
     @Override
     public void getBoxes() {

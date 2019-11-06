@@ -4,8 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -16,11 +14,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.k3.juniordesigndemo.R;
 import com.k3.juniordesigndemo.controller.slides.HomeIssuesSlideFragment;
 import com.k3.juniordesigndemo.controller.slides.MiscellaneousIssuesSlideFragment;
@@ -35,11 +30,11 @@ public class PagedReportActivity extends AppCompatActivity {
     LinearLayout dotsLinearLayout;
     Button prevButton, nextButton;
 
-    private DatabaseReference db;
-
     MyFragment[] slides;
     MyFragment currFrag;
     boolean flagInit = true;
+    int currSlide = 0;
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,11 +66,12 @@ public class PagedReportActivity extends AppCompatActivity {
         // Disable swiping
         //viewPager.setOnTouchListener((v, event) -> true);
 
-        // Set viewPager's adapter
+        // Set viewPager's adapter and listener
         viewPager.setAdapter(new ScreenSlidePagerAdapter());
+        viewPager.addOnPageChangeListener(new ScreenSlidePageChangeListener());
 
         // Set initial dots to first page
-        updateNavigation(0);
+        updateNavigation();
 
         // Set prev and next buttons' click listeners
         prevButton.setOnClickListener(new PrevButtonOnClickListener());
@@ -84,10 +80,8 @@ public class PagedReportActivity extends AppCompatActivity {
 
     /**
      * Updates the dots at the bottom of the screen by highlighting the correct dot
-     *
-     * @param currSlide The slide corresponding to the dot to be highlighted
      */
-    private void updateNavigation(int currSlide) {
+    private void updateNavigation() {
         if (currFrag != null && !flagInit) {
             currFrag.saveBoxes();
         }
@@ -135,12 +129,28 @@ public class PagedReportActivity extends AppCompatActivity {
         }
     }
 
+    private class ScreenSlidePageChangeListener implements ViewPager.OnPageChangeListener {
+
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
+
+        @Override
+        public void onPageSelected(int position) {
+            currSlide = position;
+            updateNavigation();
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {}
+    }
+
     private class PrevButtonOnClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
             int prev = Math.max(viewPager.getCurrentItem() - 1, 0);
+            currSlide = prev;
             viewPager.setCurrentItem(prev);
-            updateNavigation(prev);
+            updateNavigation();
         }
     }
 
@@ -148,18 +158,18 @@ public class PagedReportActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
 
-            if (nextButton.getText() == "Submit") {
-
+            if (currSlide == slides.length - 1) {
                 currFrag.saveBoxes();
                 Singleton.submitReport();
 
                 Intent intent = new Intent(getApplicationContext(), MapActivity.class);
-                intent.putExtra("submitted-report", true);
+                intent.putExtra("submitted-report", true); // Used to show toast when returning to MapActivity
                 startActivity(intent);
             } else {
                 int next = Math.min(viewPager.getCurrentItem() + 1, slides.length - 1);
+                currSlide = next;
                 viewPager.setCurrentItem(next);
-                updateNavigation(next);
+                updateNavigation();
             }
         }
     }

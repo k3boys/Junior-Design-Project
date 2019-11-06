@@ -56,4 +56,15 @@
         <item>Trash</item>
         <item>Abandoned car</item>
     </string-array>
+
+    <!-- Values for spinners with intensity scales (i.e. Landscaping Issue) -->
+    <string-array name="intensity_array">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
 </resources>
