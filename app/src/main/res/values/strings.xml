@@ -3,6 +3,7 @@
     <string name="title_activity_view">Map</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="street_issues_slide_title">Street Issues</string>
+    <string name="preference_file_key">com.k3.juniordesigndemo.PREFERENCE_FILE_KEY</string>
 
     <!--report categories-->
     <string name="street_reports_category_title">Street Issues</string>
@@ -66,5 +67,9 @@
         <item>4</item>
         <item>5</item>
     </string-array>
+
+    <!-- menu items -->
+    <string name="remove_page">Remove Page</string>
+    <string name="add_page">Add Page</string>
 
 </resources>

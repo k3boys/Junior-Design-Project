@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import android.os.Bundle;
 import androidx.core.content.ContextCompat;
+
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -67,7 +68,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        if(mapFragment != null) mapFragment.getMapAsync(this);
 
         // If we're coming back from a report, notify user that report has been submitted
         showReportSubmittedFeedback();
@@ -94,19 +95,20 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
      * Returns user's most recent location, or location of last report if not available
      */
     public LatLng getMostRecentLocation() {
-        LatLng location;
+        LatLng location = null;
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
             == PackageManager.PERMISSION_GRANTED) {
             LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-            Location loc = locationManager.getLastKnownLocation(locationManager.getBestProvider(new Criteria(), false));
-            if (loc == null) {
-                location = new LatLng(model.getLastReportLat(), model.getLastReportLong());
-            } else {
-                location = new LatLng(loc.getLatitude(), loc.getLongitude());
+            if(locationManager != null) {
+                Location loc = locationManager.getLastKnownLocation(locationManager.getBestProvider(new Criteria(), false));
+                if(loc == null) {
+                    location = new LatLng(model.getLastReportLat(), model.getLastReportLong());
+                } else {
+                    location = new LatLng(loc.getLatitude(), loc.getLongitude());
+                }
             }
-        } else {
-            location = new LatLng(model.getLastReportLat(), model.getLastReportLong());
         }
+        if(location == null) location = new LatLng(model.getLastReportLat(), model.getLastReportLong());
         return location;
     }
 
@@ -158,7 +160,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
     /**
      * Show feedback that report has been submitted if we are coming back from report activity
      */
-    public void showReportSubmittedFeedback() {
+    private void showReportSubmittedFeedback() {
         Bundle extras = getIntent().getExtras();
         if (extras != null && extras.getBoolean("submitted-report")) {
             Toast.makeText(getApplicationContext(), "Report submitted successfully", Toast.LENGTH_SHORT).show();
@@ -195,18 +197,22 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
         startActivity(intent);
     }
 
-
     /**
      * Callback for when camera becomes idle after user moves it that updates the address in the EditText
      */
     @Override
     public void onCameraIdle() {
+        addressEditText.setText(getAddress());
+    }
+
+    private String getAddress() {
         try {
             LatLng currLatLng = mMap.getCameraPosition().target;
             List<Address> addressList = geocoder.getFromLocation(currLatLng.latitude, currLatLng.longitude, 1);
             if(!addressList.isEmpty()) {
-                addressEditText.setText(addressList.get(0).getAddressLine(0));
+                return addressList.get(0).getAddressLine(0);
             }
         } catch(IOException e) {}
+        return "";
     }
 }

@@ -18,9 +18,9 @@
         android:id="@+id/pinImageView"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="248dp"
+        android:layout_centerVertical="true"
+        android:paddingBottom="17dp"
         android:src="@mipmap/pin" />
 
     <Button
