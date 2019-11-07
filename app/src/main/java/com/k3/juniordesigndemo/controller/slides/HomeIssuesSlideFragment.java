@@ -63,7 +63,8 @@ public class HomeIssuesSlideFragment extends MyFragment {
         currRep.setHome_disrepair(disrepair.isChecked());
         currRep.setHome_abandoned(abandoned.isChecked());
         currRep.setHome_bars(bars.isChecked());
-        currRep.setHome_broken_windows(Integer.parseInt(broken_windows.getText().toString())); /// editText is probably not a good idea; check parsing
+        String str = broken_windows.getText().toString();
+        currRep.setHome_broken_windows(str.isEmpty() ? 0 : Integer.parseInt(str));
         currRep.setHome_renovated(renovated.isChecked());
         currRep.setHome_for_sale(for_sale.isChecked());
         currRep.setHome_solar(solar.isChecked());

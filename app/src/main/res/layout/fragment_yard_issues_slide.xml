@@ -1,141 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".controller.slides.YardIssuesSlideFragment">
 
     <TextView
         android:id="@+id/slideTitle"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="24dp"
+        android:layout_margin="12dp"
         style="@style/AppSlideTitle"
         android:textAlignment="center"
-        android:text="@string/yard_reports_category_title"/>
+        android:text="@string/vehicle_reports_category_title"/>
 
-    <LinearLayout
-        android:id="@+id/issueList"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/slideTitle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="24dp"
-        android:orientation="vertical"
-        >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/issueList"
             android:layout_width="match_parent"
-            android:layout_height="31dp"
-            android:background="@drawable/category_background"
-            android:paddingEnd="-8dp"
-            android:paddingStart="16dp"
-            android:layout_marginBottom="@dimen/slide_content_bottom_padding">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="24dp"
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/yard_landscaping"
+            <CheckBox
+                android:id="@+id/abandonedApplianceCheckbox"
                 style="@style/AppSlideContent"
-                android:gravity="center_vertical"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+                android:background="@drawable/category_background"
+                android:layoutDirection="rtl"
+                android:minHeight="37dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/yard_abandoned_appliance" />
 
-            <Spinner
-                android:id="@+id/landscapingSpinner"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:entries="@array/intensity_array"/>
+            <CheckBox
+                android:id="@+id/abandonedEquipmentCheckbox"
+                style="@style/AppSlideContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+                android:background="@drawable/category_background"
+                android:layoutDirection="rtl"
+                android:minHeight="37dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/yard_abandoned_equipment" />
+
+            <CheckBox
+                android:id="@+id/trashCheckbox"
+                style="@style/AppSlideContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+                android:background="@drawable/category_background"
+                android:layoutDirection="rtl"
+                android:minHeight="37dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/yard_trash" />
+
+            <CheckBox
+                android:id="@+id/debrisCheckbox"
+                style="@style/AppSlideContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+                android:background="@drawable/category_background"
+                android:layoutDirection="rtl"
+                android:minHeight="37dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/yard_debris" />
+
+            <CheckBox
+                android:id="@+id/standingWaterCheckbox"
+                style="@style/AppSlideContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+                android:background="@drawable/category_background"
+                android:layoutDirection="rtl"
+                android:minHeight="37dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/yard_standing_water" />
+
+            <CheckBox
+                android:id="@+id/unusedGreenCheckbox"
+                style="@style/AppSlideContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+                android:background="@drawable/category_background"
+                android:layoutDirection="rtl"
+                android:minHeight="37dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/yard_abandoned_equipment" />
+
+            <CheckBox
+                android:id="@+id/treeLossCheckbox"
+                style="@style/AppSlideContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+                android:background="@drawable/category_background"
+                android:layoutDirection="rtl"
+                android:minHeight="37dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/yard_tree_loss" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+                android:background="@drawable/category_background"
+                android:minHeight="37dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="-8dp">
+
+                <TextView
+                    style="@style/AppSlideContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@string/yard_landscaping" />
+
+                <Spinner
+                    android:id="@+id/landscapingSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:entries="@array/intensity_array"
+                    android:gravity="center_vertical" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
-        <CheckBox
-            android:id="@+id/abandonedApplianceCheckbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layoutDirection="rtl"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
-            style="@style/AppSlideContent"
-            android:background="@drawable/category_background"
-            android:text="@string/yard_abandoned_appliance"/>
+    </ScrollView>
 
-        <CheckBox
-            android:id="@+id/abandonedEquipmentCheckbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layoutDirection="rtl"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
-            style="@style/AppSlideContent"
-            android:background="@drawable/category_background"
-            android:text="@string/yard_abandoned_equipment"/>
-
-        <CheckBox
-            android:id="@+id/trashCheckbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layoutDirection="rtl"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
-            style="@style/AppSlideContent"
-            android:background="@drawable/category_background"
-            android:text="@string/yard_trash"/>
-
-        <CheckBox
-            android:id="@+id/debrisCheckbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layoutDirection="rtl"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
-            style="@style/AppSlideContent"
-            android:background="@drawable/category_background"
-            android:text="@string/yard_debris"/>
-
-        <CheckBox
-            android:id="@+id/standingWaterCheckbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layoutDirection="rtl"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
-            style="@style/AppSlideContent"
-            android:background="@drawable/category_background"
-            android:text="@string/yard_standing_water"/>
-
-        <CheckBox
-            android:id="@+id/unusedGreenCheckbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layoutDirection="rtl"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
-            style="@style/AppSlideContent"
-            android:background="@drawable/category_background"
-            android:text="@string/yard_abandoned_equipment"/>
-
-        <CheckBox
-            android:id="@+id/treeLossCheckbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layoutDirection="rtl"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
-            style="@style/AppSlideContent"
-            android:background="@drawable/category_background"
-            android:text="@string/yard_tree_loss"/>
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

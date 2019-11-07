@@ -1,111 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".controller.slides.VehicleIssuesSlideFragment">
 
     <TextView
         android:id="@+id/slideTitle"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="24dp"
+        android:layout_margin="12dp"
         style="@style/AppSlideTitle"
         android:textAlignment="center"
         android:text="@string/vehicle_reports_category_title"/>
 
-    <LinearLayout
-        android:id="@+id/issueList"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="24dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/slideTitle"
-        app:layout_constraintVertical_bias="1.0">
-
-        <CheckBox
-            android:id="@+id/abandonedStreetCheckbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/category_background"
-            android:layoutDirection="rtl"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
-            style="@style/AppSlideContent"
-            android:text="@string/vehicle_abandoned_street" />
-
-        <CheckBox
-            android:id="@+id/abandonedDrivewayCheckbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/category_background"
-            android:layoutDirection="rtl"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
-            style="@style/AppSlideContent"
-            android:text="@string/vehicle_abandoned_driveway" />
-
-        <CheckBox
-            android:id="@+id/abandonedOtherCheckbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/category_background"
-            android:layoutDirection="rtl"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
-            style="@style/AppSlideContent"
-            android:text="@string/vehicle_abandoned_other" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="31dp"
-            android:background="@drawable/category_background"
-            android:paddingEnd="8dp"
-            android:paddingStart="16dp"
-            android:layout_marginBottom="@dimen/slide_content_bottom_padding">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/vehicle_parked"
-                style="@style/AppSlideContent"
-                android:gravity="center_vertical"/>
-
-            <EditText
-                android:id="@+id/parkedEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="-4dp"
-                android:paddingBottom="8dp"
-                android:textAlignment="textEnd"
-                android:inputType="number"
-                android:textSize="17sp"
-                android:maxLength="2"
-                android:ems="2"/>
-        </LinearLayout>
-
-        <CheckBox
-            android:id="@+id/oversizedCheckbox"
+            android:id="@+id/issueList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/category_background"
-            android:layoutDirection="rtl"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
-            style="@style/AppSlideContent"
-            android:text="@string/vehicle_oversized" />
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="24dp"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/abandonedStreetCheckbox"
+                style="@style/AppSlideContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+                android:background="@drawable/category_background"
+                android:layoutDirection="rtl"
+                android:minHeight="37dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/vehicle_abandoned_street" />
+
+            <CheckBox
+                android:id="@+id/abandonedDrivewayCheckbox"
+                style="@style/AppSlideContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+                android:background="@drawable/category_background"
+                android:layoutDirection="rtl"
+                android:minHeight="37dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/vehicle_abandoned_driveway" />
+
+            <CheckBox
+                android:id="@+id/abandonedOtherCheckbox"
+                style="@style/AppSlideContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+                android:background="@drawable/category_background"
+                android:layoutDirection="rtl"
+                android:minHeight="37dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/vehicle_abandoned_other" />
+
+            <CheckBox
+                android:id="@+id/oversizedCheckbox"
+                style="@style/AppSlideContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+                android:background="@drawable/category_background"
+                android:layoutDirection="rtl"
+                android:minHeight="37dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/vehicle_oversized" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+                android:background="@drawable/category_background"
+                android:minHeight="37dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="8dp">
+
+                <TextView
+                    style="@style/AppSlideContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@string/vehicle_parked" />
+
+                <EditText
+                    android:id="@+id/parkedEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="-4dp"
+                    android:gravity="center"
+                    android:ems="2"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:paddingBottom="8dp"
+                    android:textAlignment="textEnd"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

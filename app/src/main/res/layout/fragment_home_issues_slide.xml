@@ -1,158 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".controller.slides.HomeIssuesSlideFragment">
 
     <TextView
         android:id="@+id/slideTitle"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="24dp"
+        android:layout_margin="12dp"
         style="@style/AppSlideTitle"
         android:textAlignment="center"
         android:text="@string/home_reports_category_title"/>
 
-    <LinearLayout
-        android:id="@+id/issueList"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/slideTitle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="24dp"
-        android:orientation="vertical"
-        >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/slideTitle">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="31dp"
-            android:background="@drawable/category_background"
-            android:paddingEnd="-8dp"
-            android:paddingStart="16dp"
-            android:layout_marginBottom="@dimen/slide_content_bottom_padding">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/home_condition"
-                style="@style/AppSlideContent"
-                android:gravity="center_vertical"/>
-
-            <Spinner
-                android:id="@+id/conditionSpinner"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:entries="@array/intensity_array"/>
-        </LinearLayout>
-
-        <CheckBox
-            android:id="@+id/homeDisrepairCheckbox"
+            android:id="@+id/issueList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layoutDirection="rtl"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
-            style="@style/AppSlideContent"
-            android:background="@drawable/category_background"
-            android:text="@string/home_disrepair"/>
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="24dp"
+            android:orientation="vertical">
 
-        <CheckBox
-            android:id="@+id/barsCheckbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layoutDirection="rtl"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
-            style="@style/AppSlideContent"
-            android:background="@drawable/category_background"
-            android:text="@string/home_bars"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="31dp"
-            android:background="@drawable/category_background"
-            android:paddingEnd="8dp"
-            android:paddingStart="16dp"
-            android:layout_marginBottom="@dimen/slide_content_bottom_padding">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/home_broken_windows"
+            <CheckBox
+                android:id="@+id/homeDisrepairCheckbox"
                 style="@style/AppSlideContent"
-                android:gravity="center_vertical"/>
-
-            <EditText
-                android:id="@+id/brokenWindowsEditText"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="-4dp"
-                android:paddingBottom="8dp"
-                android:textAlignment="textEnd"
-                android:inputType="number"
-                android:textSize="17sp"
-                android:maxLength="2"
-                android:ems="2"/>
+                android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+                android:background="@drawable/category_background"
+                android:layoutDirection="rtl"
+                android:minHeight="37dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/home_disrepair" />
+
+            <CheckBox
+                android:id="@+id/barsCheckbox"
+                style="@style/AppSlideContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+                android:background="@drawable/category_background"
+                android:layoutDirection="rtl"
+                android:minHeight="37dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/home_bars" />
+
+            <CheckBox
+                android:id="@+id/abandonedCheckbox"
+                style="@style/AppSlideContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+                android:background="@drawable/category_background"
+                android:layoutDirection="rtl"
+                android:minHeight="37dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/home_abandoned" />
+
+            <CheckBox
+                android:id="@+id/forSaleCheckbox"
+                style="@style/AppSlideContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+                android:background="@drawable/category_background"
+                android:layoutDirection="rtl"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/home_for_sale" />
+
+            <CheckBox
+                android:id="@+id/renovatedCheckbox"
+                style="@style/AppSlideContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+                android:background="@drawable/category_background"
+                android:layoutDirection="rtl"
+                android:minHeight="37dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/home_renovated" />
+
+            <CheckBox
+                android:id="@+id/solarCheckbox"
+                style="@style/AppSlideContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+                android:background="@drawable/category_background"
+                android:layoutDirection="rtl"
+                android:minHeight="37dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/home_solar" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+                android:background="@drawable/category_background"
+                android:minHeight="37dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="-8dp">
+
+                <TextView
+                    style="@style/AppSlideContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@string/home_condition" />
+
+                <Spinner
+                    android:id="@+id/conditionSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:entries="@array/intensity_array"
+                    android:gravity="center_vertical" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+                android:background="@drawable/category_background"
+                android:minHeight="37dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="8dp">
+
+                <TextView
+                    style="@style/AppSlideContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@string/home_broken_windows" />
+
+                <EditText
+                    android:id="@+id/brokenWindowsEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="-4dp"
+                    android:gravity="center"
+                    android:ems="2"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:paddingBottom="8dp"
+                    android:textAlignment="textEnd"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
-        <CheckBox
-            android:id="@+id/abandonedCheckbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layoutDirection="rtl"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
-            style="@style/AppSlideContent"
-            android:background="@drawable/category_background"
-            android:text="@string/home_abandoned"/>
+    </ScrollView>
 
-        <CheckBox
-            android:id="@+id/forSaleCheckbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layoutDirection="rtl"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
-            style="@style/AppSlideContent"
-            android:background="@drawable/category_background"
-            android:text="@string/home_for_sale"/>
-
-        <CheckBox
-            android:id="@+id/renovatedCheckbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layoutDirection="rtl"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
-            style="@style/AppSlideContent"
-            android:background="@drawable/category_background"
-            android:text="@string/home_renovated"/>
-
-        <CheckBox
-            android:id="@+id/solarCheckbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layoutDirection="rtl"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
-            style="@style/AppSlideContent"
-            android:background="@drawable/category_background"
-            android:text="@string/home_solar"/>
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

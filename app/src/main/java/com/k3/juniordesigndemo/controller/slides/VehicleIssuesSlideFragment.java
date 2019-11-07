@@ -55,7 +55,8 @@ public class VehicleIssuesSlideFragment extends MyFragment {
         currRep.setVehicle_abandoned_street(abandoned_street.isChecked());
         currRep.setVehicle_abandoned_driveway(abandoned_driveway.isChecked());
         currRep.setVehicle_abandoned_other(abandoned_other.isChecked());
-        currRep.setVehicle_parked(Integer.parseInt(parked.getText().toString()));
+        String str = parked.getText().toString();
+        currRep.setVehicle_parked(str.isEmpty() ? 0 : Integer.parseInt(str));
         currRep.setVehicle_oversized(oversized.isChecked());
     }
 }
