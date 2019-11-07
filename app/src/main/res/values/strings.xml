@@ -22,7 +22,7 @@
     <string name="home_bars">Bars on Doors or Windows</string>
     <string name="home_broken_windows">Broken Windows</string>
     <string name="home_abandoned">Abandoned House</string>
-    <string name="home_selling">House for Sale</string>
+    <string name="home_for_sale">House for Sale</string>
     <string name="home_renovated">Evidence of Renovation</string>
     <string name="home_solar">Solar Adaptation</string>
     <!--yard issues-->

@@ -31,10 +31,10 @@ public class MiscellaneousIssuesSlideFragment extends MyFragment {
     public void onViewCreated (View view,
                                Bundle savedInstanceState) {
 
-        need_beautification = view.findViewById(R.id.beautificationCheckbox);
+        need_beautification = view.findViewById(R.id.needBeautificationCheckbox);
         gentrification = view.findViewById(R.id.gentrificationCheckbox);
         noise = view.findViewById(R.id.noiseCheckbox);
-        basketball_goals = view.findViewById(R.id.basketballGoalCheckbox);
+        basketball_goals = view.findViewById(R.id.basketballGoalsCheckbox);
         equipment_storage = view.findViewById(R.id.equipmentStorageCheckbox);
         vacant_lot = view.findViewById(R.id.vacantLotCheckbox);
         bus_stop = view.findViewById(R.id.busStopCheckbox);

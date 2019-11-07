@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.k3.juniordesigndemo.R;
 import com.k3.juniordesigndemo.controller.Singleton;
@@ -13,7 +15,7 @@ import com.k3.juniordesigndemo.model.Report;
 
 public class YardIssuesSlideFragment extends MyFragment {
 
-    CheckBox landscaping;
+    Spinner landscaping;
     CheckBox abandoned_appliance;
     CheckBox abandoned_equipment;
     CheckBox trash;
@@ -31,7 +33,7 @@ public class YardIssuesSlideFragment extends MyFragment {
     @Override
     public void onViewCreated (View view,
                                Bundle savedInstanceState) {
-        landscaping = view.findViewById(R.id.landscapingCheckbox);
+        landscaping = view.findViewById(R.id.landscapingSpinner);
         abandoned_appliance = view.findViewById(R.id.abandonedApplianceCheckbox);
         abandoned_equipment = view.findViewById(R.id.abandonedEquipmentCheckbox);
         trash = view.findViewById(R.id.trashCheckbox);
@@ -44,7 +46,7 @@ public class YardIssuesSlideFragment extends MyFragment {
     @Override
     public void getBoxes() {
         Report currRep = Singleton.getReport();
-        landscaping.setChecked(currRep.isYard_landscaping() == 1);
+        landscaping.setSelection(currRep.isYard_landscaping());
         abandoned_appliance.setChecked(currRep.isYard_abandoned_appliance());
         abandoned_equipment.setChecked(currRep.isYard_abandoned_equipment());
         trash.setChecked(currRep.isYard_trash());
@@ -57,7 +59,7 @@ public class YardIssuesSlideFragment extends MyFragment {
     @Override
     public void saveBoxes() {
         Report currRep = Singleton.getReport();
-        currRep.setYard_landscaping(landscaping.isChecked()? 1:0);
+        currRep.setYard_landscaping(Integer.parseInt(landscaping.getSelectedItem().toString()));
         currRep.setYard_abandoned_appliance(abandoned_appliance.isChecked());
         currRep.setYard_abandoned_equipment(abandoned_equipment.isChecked());
         currRep.setYard_trash(trash.isChecked());

@@ -61,7 +61,7 @@ public class Report {
         this.street_hydrant_oos = street_hydrant_oos;
     }
 
-    public int getHome_condition() {
+    public Integer getHome_condition() {
         return home_condition;
     }
 
@@ -85,7 +85,7 @@ public class Report {
         this.home_bars = home_bars;
     }
 
-    public int isHome_broken_windows() {
+    public Integer isHome_broken_windows() {
         return home_broken_windows;
     }
 
@@ -101,12 +101,12 @@ public class Report {
         this.home_abandoned = home_abandoned;
     }
 
-    public boolean isHome_selling() {
-        return home_selling;
+    public boolean isHome_for_sale() {
+        return home_for_sale;
     }
 
-    public void setHome_selling(boolean home_selling) {
-        this.home_selling = home_selling;
+    public void setHome_for_sale(boolean home_for_sale) {
+        this.home_for_sale = home_for_sale;
     }
 
     public boolean isHome_renovated() {
@@ -125,7 +125,7 @@ public class Report {
         this.home_solar = home_solar;
     }
 
-    public int isYard_landscaping() {
+    public Integer isYard_landscaping() {
         return yard_landscaping;
     }
 
@@ -213,7 +213,7 @@ public class Report {
         this.vehicle_abandoned_other = vehicle_abandoned_other;
     }
 
-    public int getVehicle_parked() {
+    public Integer getVehicle_parked() {
         return vehicle_parked;
     }
 
@@ -303,7 +303,7 @@ public class Report {
     boolean home_bars;
     int home_broken_windows;
     boolean home_abandoned;
-    boolean home_selling;
+    boolean home_for_sale;
     boolean home_renovated;
     boolean home_solar;
 

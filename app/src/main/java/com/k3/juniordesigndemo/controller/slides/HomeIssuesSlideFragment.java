@@ -6,25 +6,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.k3.juniordesigndemo.R;
 import com.k3.juniordesigndemo.controller.Singleton;
 import com.k3.juniordesigndemo.model.Report;
 
 public class HomeIssuesSlideFragment extends MyFragment {
-    CheckBox home_abandoned;
-    CheckBox home_bars;
-    CheckBox home_broken_windows;
-    CheckBox home_condition;
-    CheckBox home_disrepair;
-    CheckBox home_renovated;
-    CheckBox home_selling;
-    CheckBox home_solar;
+    Spinner condition;
+    CheckBox disrepair;
+    CheckBox bars;
+    EditText broken_windows;
+    CheckBox abandoned;
+    CheckBox for_sale;
+    CheckBox renovated;
+    CheckBox solar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
 
         return inflater.inflate(R.layout.fragment_home_issues_slide, container, false);
     }
@@ -32,39 +33,39 @@ public class HomeIssuesSlideFragment extends MyFragment {
     public void onViewCreated (View view,
                                Bundle savedInstanceState) {
 
-        home_abandoned = view.findViewById(R.id.abandonedCheckbox);
-        home_bars = view.findViewById(R.id.barsCheckbox);
-        home_broken_windows = view.findViewById(R.id.brokenWindowCheckbox);
-        home_disrepair = view.findViewById(R.id.disrepairCheckbox);
-        home_condition = view.findViewById(R.id.houseConditionCheckbox);
-        home_renovated = view.findViewById(R.id.renovationCheckbox);
-        home_selling = view.findViewById(R.id.forSaleCheckbox);
-        home_solar = view.findViewById(R.id.solarCheckbox);
+        condition = view.findViewById(R.id.conditionSpinner);
+        disrepair = view.findViewById(R.id.homeDisrepairCheckbox);
+        bars = view.findViewById(R.id.barsCheckbox);
+        broken_windows = view.findViewById(R.id.brokenWindowsEditText);
+        abandoned = view.findViewById(R.id.abandonedCheckbox);
+        renovated = view.findViewById(R.id.renovatedCheckbox);
+        for_sale = view.findViewById(R.id.forSaleCheckbox);
+        solar = view.findViewById(R.id.solarCheckbox);
     }
 
     @Override
     public void getBoxes() {
         Report currRep = Singleton.getReport();
-        home_abandoned.setChecked(currRep.isHome_abandoned());
-        home_bars.setChecked(currRep.isHome_bars());
-        home_broken_windows.setChecked(currRep.isHome_broken_windows() == 1);
-        home_disrepair.setChecked(currRep.isHome_disrepair());
-        home_condition.setChecked(currRep.getHome_condition() == 1);
-        home_renovated.setChecked(currRep.isHome_renovated());
-        home_selling.setChecked(currRep.isHome_selling());
-        home_solar.setChecked(currRep.isHome_solar());
+        condition.setSelection(currRep.getHome_condition());
+        disrepair.setChecked(currRep.isHome_disrepair());
+        abandoned.setChecked(currRep.isHome_abandoned());
+        bars.setChecked(currRep.isHome_bars());
+        broken_windows.setText(currRep.isHome_broken_windows().toString());
+        renovated.setChecked(currRep.isHome_renovated());
+        for_sale.setChecked(currRep.isHome_for_sale());
+        solar.setChecked(currRep.isHome_solar());
     }
 
     @Override
     public void saveBoxes() {
         Report currRep = Singleton.getReport();
-        currRep.setHome_abandoned(home_abandoned.isChecked());
-        currRep.setHome_bars(home_bars.isChecked());
-        currRep.setHome_broken_windows(home_broken_windows.isChecked()? 1:0);
-        currRep.setHome_disrepair(home_disrepair.isChecked());
-        currRep.setHome_condition(home_condition.isChecked()? 1:0);
-        currRep.setHome_renovated(home_renovated.isChecked());
-        currRep.setHome_selling(home_selling.isChecked());
-        currRep.setHome_solar(home_solar.isChecked());
+        currRep.setHome_condition(Integer.parseInt(condition.getSelectedItem().toString()));
+        currRep.setHome_disrepair(disrepair.isChecked());
+        currRep.setHome_abandoned(abandoned.isChecked());
+        currRep.setHome_bars(bars.isChecked());
+        currRep.setHome_broken_windows(Integer.parseInt(broken_windows.getText().toString())); /// editText is probably not a good idea; check parsing
+        currRep.setHome_renovated(renovated.isChecked());
+        currRep.setHome_for_sale(for_sale.isChecked());
+        currRep.setHome_solar(solar.isChecked());
     }
 }

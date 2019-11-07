@@ -137,7 +137,7 @@ public class PagedReportActivity extends AppCompatActivity {
         @Override
         public void onPageSelected(int position) {
             currSlide = position;
-            updateNavigation();
+//            updateNavigation();
         }
 
         @Override

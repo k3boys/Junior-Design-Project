@@ -8,97 +8,122 @@
 
     <TextView
         android:id="@+id/slideTitle"
-
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-
         android:layout_margin="24dp"
-
         style="@style/AppSlideTitle"
         android:textAlignment="center"
-
         android:text="@string/miscellaneous_reports_category_title"/>
 
     <LinearLayout
         android:id="@+id/issueList"
-
         android:layout_width="0dp"
         android:layout_height="0dp"
-
         app:layout_constraintTop_toBottomOf="@id/slideTitle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-
         android:layout_margin="24dp"
-
         android:orientation="vertical"
         >
 
         <CheckBox
-            android:id="@+id/beautificationCheckbox"
+            android:id="@+id/needBeautificationCheckbox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:layout_marginBottom="@dimen/slide_content_bottom_padding"
-
             style="@style/AppSlideContent"
-
             android:background="@drawable/category_background"
-            android:text="@string/beautification_report"/>
-
-        <CheckBox
-            android:id="@+id/abandonedEquipmentCheckbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:layoutDirection="rtl"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
-
-            style="@style/AppSlideContent"
-
-            android:background="@drawable/category_background"
-            android:text="@string/abandoned_equipment_report"/>
+            android:text="@string/misc_need_beautification"/>
 
         <CheckBox
             android:id="@+id/gentrificationCheckbox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:layout_marginBottom="@dimen/slide_content_bottom_padding"
-
             style="@style/AppSlideContent"
-
             android:background="@drawable/category_background"
-            android:text="@string/gentrification_report"/>
+            android:text="@string/misc_gentrification"/>
 
         <CheckBox
             android:id="@+id/noiseCheckbox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:layoutDirection="rtl"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:layout_marginBottom="@dimen/slide_content_bottom_padding"
-
             style="@style/AppSlideContent"
-
             android:background="@drawable/category_background"
-            android:text="@string/noise_report"/>
+            android:text="@string/misc_noise"/>
+
+        <CheckBox
+            android:id="@+id/basketballGoalsCheckbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+            style="@style/AppSlideContent"
+            android:background="@drawable/category_background"
+            android:text="@string/misc_basketball_goals"/>
+
+        <CheckBox
+            android:id="@+id/equipmentStorageCheckbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+            style="@style/AppSlideContent"
+            android:background="@drawable/category_background"
+            android:text="@string/misc_equipment_storage"/>
+
+        <CheckBox
+            android:id="@+id/vacantLotCheckbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+            style="@style/AppSlideContent"
+            android:background="@drawable/category_background"
+            android:text="@string/misc_vacant_lot"/>
+
+        <CheckBox
+            android:id="@+id/busStopCheckbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+            style="@style/AppSlideContent"
+            android:background="@drawable/category_background"
+            android:text="@string/misc_bus_stop"/>
+
+        <CheckBox
+            android:id="@+id/benchmarkCheckbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginBottom="@dimen/slide_content_bottom_padding"
+            style="@style/AppSlideContent"
+            android:background="@drawable/category_background"
+            android:text="@string/misc_benchmark"/>
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
