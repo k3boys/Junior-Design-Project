@@ -34,7 +34,7 @@ public class Singleton {
         db.child("reports").child(Integer.toString(report.calcId())).setValue(report, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
-                report.details = databaseError.getMessage();
+                //report.details = databaseError.getMessage();
             }
         });
     }
