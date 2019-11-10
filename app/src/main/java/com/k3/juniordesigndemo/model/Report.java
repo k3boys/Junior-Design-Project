@@ -1,6 +1,9 @@
 package com.k3.juniordesigndemo.model;
 
-import android.location.Location;
+import android.provider.Settings.Secure;
+
+import com.google.android.gms.maps.model.LatLng;
+import com.k3.juniordesigndemo.controller.Singleton;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -9,23 +12,33 @@ public class Report {
 
     public Report() {}
 
-    public Report(String address) {
+    public Report(String address, double lat, double lon) {
         this.address = address;
-        this.location = new Location(address);
+        this.location = new LatLng(lat, lon);
         this.datetime = Calendar.getInstance().getTime();
         this.details = "";
     }
 
     public int calcId() {
-        int addrHash = this.address.hashCode();
-        int dtHash = this.datetime.hashCode();
-        int locHash = this.location.hashCode();
-        return addrHash + dtHash + locHash;
+        Integer addrHash = Math.abs(this.address.hashCode());
+        Integer dtHash = Math.abs(this.datetime.hashCode());
+        Integer locHash = Math.abs(this.location.hashCode());
+
+
+        Integer android_id = Math.abs(Singleton.getDevId().hashCode());
+        String str1 = addrHash.toString();
+        String str2 = dtHash.toString();
+        String str3 = locHash.toString();
+        String str4 = android_id.toString();
+
+        String ccat = str1 + str2 + str3 + str4;
+
+        return addrHash * dtHash * locHash * android_id;
     }
 
-    String address;
-    Location location;
-    Date datetime;
+    public String address;
+    public LatLng location;
+    public Date datetime;
 
     public String details;
 

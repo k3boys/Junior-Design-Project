@@ -89,6 +89,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
 
         // Request location permission from user
         requestLocationPermission();
+
+        Singleton.setContext(getApplication().getBaseContext());
     }
 
     /**
@@ -194,6 +196,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
         Intent intent = new Intent(this, PagedReportActivity.class);
         String address = addressEditText.getText().toString();
         intent.putExtra("ADDRESS", address);
+        intent.putExtra("LAT", this.getMostRecentLocation().latitude);
+        intent.putExtra("LNG", this.getMostRecentLocation().longitude);
         startActivity(intent);
     }
 
@@ -208,6 +212,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
     private String getAddress() {
         try {
             LatLng currLatLng = mMap.getCameraPosition().target;
+            //LatLng latlng2 = this.getMostRecentLocation();
             List<Address> addressList = geocoder.getFromLocation(currLatLng.latitude, currLatLng.longitude, 1);
             if(!addressList.isEmpty()) {
                 return addressList.get(0).getAddressLine(0);

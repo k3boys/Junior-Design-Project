@@ -53,7 +53,7 @@ public class PagedReportActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
 
         if (extras != null) {
-            Singleton.newReport(extras.getString("ADDRESS"));
+            Singleton.newReport(extras.getString("ADDRESS"), extras.getDouble("LAT"), extras.getDouble("LNG"));
         }
 
         // Get activity components
@@ -148,7 +148,10 @@ public class PagedReportActivity extends AppCompatActivity {
         currFrag = slides[currSlide];
 
         if (!flagInit) {
-            currFrag.getBoxes();
+            for (int i = 0; i < numPages; i++) {
+                slides[Math.min(currSlide + numPages, slides.length - 1)].getBoxes();
+            }
+            //currFrag.getBoxes();
         }
 
         flagInit = false;
@@ -196,6 +199,9 @@ public class PagedReportActivity extends AppCompatActivity {
     private class PrevButtonOnClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
+            for (int i = 0; i < numPages; i++) {
+                slides[Math.min(currSlide + numPages, slides.length - 1)].saveBoxes();
+            }
             currSlide = Math.max(currSlide - 1, 0);
             viewPager.setCurrentItem(currSlide);
             updateNavigation();
@@ -206,15 +212,22 @@ public class PagedReportActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            if (currSlide == lastSlide) {
-                currFrag.saveBoxes();
+            if (currSlide  == lastSlide) {
+                for (int i = 0; i < numPages; i++) {
+                    slides[Math.min(currSlide + numPages, slides.length - 1)].saveBoxes();
+                }
+                //currFrag.saveBoxes();
                 Singleton.submitReport();
 
                 Intent intent = new Intent(getApplicationContext(), MapActivity.class);
                 intent.putExtra("submitted-report", true); // Used to show toast when returning to MapActivity
                 startActivity(intent);
             } else {
+                for (int i = 0; i < numPages; i++) {
+                    slides[Math.min(currSlide + numPages, slides.length - 1)].saveBoxes();
+                }
                 currSlide = Math.min(currSlide + 1, lastSlide);
+
                 viewPager.setCurrentItem(currSlide);
                 updateNavigation();
             }
