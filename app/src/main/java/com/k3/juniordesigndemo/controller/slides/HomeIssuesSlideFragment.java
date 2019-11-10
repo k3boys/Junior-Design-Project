@@ -1,7 +1,6 @@
 package com.k3.juniordesigndemo.controller.slides;
 
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,10 +9,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.k3.juniordesigndemo.R;
-import com.k3.juniordesigndemo.controller.Singleton;
+import com.k3.juniordesigndemo.model.ReportSingleton;
 import com.k3.juniordesigndemo.model.Report;
 
 public class HomeIssuesSlideFragment extends MyFragment {
+
     Spinner condition;
     CheckBox disrepair;
     CheckBox bars;
@@ -26,13 +26,11 @@ public class HomeIssuesSlideFragment extends MyFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         return inflater.inflate(R.layout.fragment_home_issues_slide, container, false);
     }
 
     public void onViewCreated (View view,
                                Bundle savedInstanceState) {
-
         condition = view.findViewById(R.id.conditionSpinner);
         disrepair = view.findViewById(R.id.homeDisrepairCheckbox);
         bars = view.findViewById(R.id.barsCheckbox);
@@ -45,7 +43,7 @@ public class HomeIssuesSlideFragment extends MyFragment {
 
     @Override
     public void getBoxes() {
-        Report currRep = Singleton.getReport();
+        Report currRep = ReportSingleton.getReport();
         condition.setSelection(currRep.getHome_condition());
         disrepair.setChecked(currRep.isHome_disrepair());
         abandoned.setChecked(currRep.isHome_abandoned());
@@ -58,7 +56,7 @@ public class HomeIssuesSlideFragment extends MyFragment {
 
     @Override
     public void saveBoxes() {
-        Report currRep = Singleton.getReport();
+        Report currRep = ReportSingleton.getReport();
         currRep.setHome_condition(Integer.parseInt(condition.getSelectedItem().toString()));
         currRep.setHome_disrepair(disrepair.isChecked());
         currRep.setHome_abandoned(abandoned.isChecked());

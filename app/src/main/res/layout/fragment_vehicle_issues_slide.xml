@@ -109,7 +109,8 @@
                     android:maxLength="2"
                     android:paddingBottom="8dp"
                     android:textAlignment="textEnd"
-                    android:textSize="17sp" />
+                    android:textSize="17sp"
+                    android:text="0" />
 
             </LinearLayout>
 

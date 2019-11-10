@@ -1,16 +1,14 @@
 package com.k3.juniordesigndemo.controller.slides;
 
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.k3.juniordesigndemo.R;
-import com.k3.juniordesigndemo.controller.Singleton;
+import com.k3.juniordesigndemo.model.ReportSingleton;
 import com.k3.juniordesigndemo.model.Report;
 
 public class YardIssuesSlideFragment extends MyFragment {
@@ -45,7 +43,7 @@ public class YardIssuesSlideFragment extends MyFragment {
 
     @Override
     public void getBoxes() {
-        Report currRep = Singleton.getReport();
+        Report currRep = ReportSingleton.getReport();
         landscaping.setSelection(currRep.isYard_landscaping());
         abandoned_appliance.setChecked(currRep.isYard_abandoned_appliance());
         abandoned_equipment.setChecked(currRep.isYard_abandoned_equipment());
@@ -58,7 +56,7 @@ public class YardIssuesSlideFragment extends MyFragment {
 
     @Override
     public void saveBoxes() {
-        Report currRep = Singleton.getReport();
+        Report currRep = ReportSingleton.getReport();
         currRep.setYard_landscaping(Integer.parseInt(landscaping.getSelectedItem().toString()));
         currRep.setYard_abandoned_appliance(abandoned_appliance.isChecked());
         currRep.setYard_abandoned_equipment(abandoned_equipment.isChecked());

@@ -1,17 +1,17 @@
 package com.k3.juniordesigndemo.controller.slides;
 
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 
 import com.k3.juniordesigndemo.R;
-import com.k3.juniordesigndemo.controller.Singleton;
+import com.k3.juniordesigndemo.model.ReportSingleton;
 import com.k3.juniordesigndemo.model.Report;
 
 public class MiscellaneousIssuesSlideFragment extends MyFragment {
+
     CheckBox need_beautification;
     CheckBox gentrification;
     CheckBox noise;
@@ -24,13 +24,11 @@ public class MiscellaneousIssuesSlideFragment extends MyFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         return inflater.inflate(R.layout.fragment_miscellaneous_issues_slide, container, false);
     }
 
     public void onViewCreated (View view,
                                Bundle savedInstanceState) {
-
         need_beautification = view.findViewById(R.id.needBeautificationCheckbox);
         gentrification = view.findViewById(R.id.gentrificationCheckbox);
         noise = view.findViewById(R.id.noiseCheckbox);
@@ -43,7 +41,7 @@ public class MiscellaneousIssuesSlideFragment extends MyFragment {
 
     @Override
     public void getBoxes() {
-        Report currRep = Singleton.getReport();
+        Report currRep = ReportSingleton.getReport();
         need_beautification.setChecked(currRep.isMisc_need_beautification());
         gentrification.setChecked(currRep.isMisc_gentrification());
         noise.setChecked(currRep.isMisc_noise());
@@ -56,7 +54,7 @@ public class MiscellaneousIssuesSlideFragment extends MyFragment {
 
     @Override
     public void saveBoxes() {
-        Report currRep = Singleton.getReport();
+        Report currRep = ReportSingleton.getReport();
         currRep.setMisc_need_beautification(need_beautification.isChecked());
         currRep.setMisc_gentrification(gentrification.isChecked());
         currRep.setMisc_noise(noise.isChecked());

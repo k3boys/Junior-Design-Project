@@ -18,7 +18,7 @@
     <string name="street_drain_blocked">Storm Drain Blocked</string>
     <string name="street_hydrant_oos">Fire Hydrant Out of Service</string>
     <!--home issues-->
-    <string name="home_condition">Housing Condition</string>
+    <string name="home_condition">Housing Condition Issue</string>
     <string name="home_disrepair">Home in Disrepair</string>
     <string name="home_bars">Bars on Doors or Windows</string>
     <string name="home_broken_windows">Broken Windows</string>
@@ -27,7 +27,7 @@
     <string name="home_renovated">Evidence of Renovation</string>
     <string name="home_solar">Solar Adaptation</string>
     <!--yard issues-->
-    <string name="yard_landscaping">Quality of Landscaping</string>
+    <string name="yard_landscaping">Landscaping Issue</string>
     <string name="yard_abandoned_appliance">Abandoned Appliances</string>
     <string name="yard_abandoned_equipment">Abandoned Equipment</string>
     <string name="yard_trash">Trash and/or Junk Pile</string>

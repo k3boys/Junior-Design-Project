@@ -1,9 +1,6 @@
 package com.k3.juniordesigndemo.model;
 
-import android.provider.Settings.Secure;
-
 import com.google.android.gms.maps.model.LatLng;
-import com.k3.juniordesigndemo.controller.Singleton;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -25,7 +22,7 @@ public class Report {
         Integer locHash = Math.abs(this.location.hashCode());
 
 
-        Integer android_id = Math.abs(Singleton.getDevId().hashCode());
+        Integer android_id = Math.abs(ReportSingleton.getDevId().hashCode());
         String str1 = addrHash.toString();
         String str2 = dtHash.toString();
         String str3 = locHash.toString();

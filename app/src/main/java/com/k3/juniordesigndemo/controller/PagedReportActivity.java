@@ -12,7 +12,6 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -28,6 +27,7 @@ import com.k3.juniordesigndemo.controller.slides.MyFragment;
 import com.k3.juniordesigndemo.controller.slides.StreetIssuesSlideFragment;
 import com.k3.juniordesigndemo.controller.slides.VehicleIssuesSlideFragment;
 import com.k3.juniordesigndemo.controller.slides.YardIssuesSlideFragment;
+import com.k3.juniordesigndemo.model.ReportSingleton;
 
 public class PagedReportActivity extends AppCompatActivity {
 
@@ -38,7 +38,6 @@ public class PagedReportActivity extends AppCompatActivity {
 
     SharedPreferences preferences;
     MyFragment[] slides;
-    MyFragment currFrag;
     boolean flagInit = true;
     int currSlide = 0;
     int numPages = 1;
@@ -53,7 +52,7 @@ public class PagedReportActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
 
         if (extras != null) {
-            Singleton.newReport(extras.getString("ADDRESS"), extras.getDouble("LAT"), extras.getDouble("LNG"));
+            ReportSingleton.newReport(extras.getString("ADDRESS"), extras.getDouble("LAT"), extras.getDouble("LNG"));
         }
 
         // Get activity components
@@ -76,9 +75,6 @@ public class PagedReportActivity extends AppCompatActivity {
         numPages = preferences.getInt("NUM_PAGES", 1);
         lastSlide = slides.length - (numPages - 1) - 1;
 
-        // Disable swiping
-        //viewPager.setOnTouchListener((v, event) -> true);
-
         // Set viewPager's adapter and listener
         viewPager.setAdapter(new ScreenSlidePagerAdapter());
         viewPager.addOnPageChangeListener(new ScreenSlidePageChangeListener());
@@ -100,6 +96,7 @@ public class PagedReportActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        saveCurrentPages();
         if(item.getItemId() == R.id.add_page) {
             numPages = Math.min(numPages + 1, slides.length);
         } else {
@@ -125,10 +122,6 @@ public class PagedReportActivity extends AppCompatActivity {
      * Updates the dots at the bottom of the screen by highlighting the correct dot
      */
     private void updateNavigation() {
-        if (currFrag != null && !flagInit) {
-            currFrag.saveBoxes();
-        }
-
         dotsLinearLayout.removeAllViews();
 
         for (int i = 0; i <= lastSlide; i++) {
@@ -145,13 +138,8 @@ public class PagedReportActivity extends AppCompatActivity {
         if (currSlide == lastSlide) nextButton.setText("Submit");
         else nextButton.setText("Next");
 
-        currFrag = slides[currSlide];
-
         if (!flagInit) {
-            for (int i = 0; i < numPages; i++) {
-                slides[Math.min(currSlide + numPages, slides.length - 1)].getBoxes();
-            }
-            //currFrag.getBoxes();
+            loadCurrentPages();
         }
 
         flagInit = false;
@@ -186,6 +174,7 @@ public class PagedReportActivity extends AppCompatActivity {
 
         @Override
         public void onPageSelected(int position) {
+            saveCurrentPages();
             position = Math.min(position, lastSlide);
             position = Math.max(position, 0);
             currSlide = position;
@@ -199,9 +188,7 @@ public class PagedReportActivity extends AppCompatActivity {
     private class PrevButtonOnClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            for (int i = 0; i < numPages; i++) {
-                slides[Math.min(currSlide + numPages, slides.length - 1)].saveBoxes();
-            }
+            saveCurrentPages();
             currSlide = Math.max(currSlide - 1, 0);
             viewPager.setCurrentItem(currSlide);
             updateNavigation();
@@ -213,24 +200,31 @@ public class PagedReportActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             if (currSlide  == lastSlide) {
-                for (int i = 0; i < numPages; i++) {
-                    slides[Math.min(currSlide + numPages, slides.length - 1)].saveBoxes();
-                }
-                //currFrag.saveBoxes();
-                Singleton.submitReport();
+                saveCurrentPages();
+                ReportSingleton.submitReport();
 
                 Intent intent = new Intent(getApplicationContext(), MapActivity.class);
                 intent.putExtra("submitted-report", true); // Used to show toast when returning to MapActivity
                 startActivity(intent);
             } else {
-                for (int i = 0; i < numPages; i++) {
-                    slides[Math.min(currSlide + numPages, slides.length - 1)].saveBoxes();
-                }
+                saveCurrentPages();
                 currSlide = Math.min(currSlide + 1, lastSlide);
 
                 viewPager.setCurrentItem(currSlide);
                 updateNavigation();
             }
+        }
+    }
+
+    private void saveCurrentPages() {
+        for (int i = 0; i < numPages; i++) {
+            slides[currSlide + i].saveBoxes();
+        }
+    }
+
+    private void loadCurrentPages() {
+        for (int i = 0; i < numPages; i++) {
+            slides[currSlide + i].getBoxes();
         }
     }
 }

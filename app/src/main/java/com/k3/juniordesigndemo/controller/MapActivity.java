@@ -30,6 +30,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.k3.juniordesigndemo.R;
 import com.k3.juniordesigndemo.model.Model;
+import com.k3.juniordesigndemo.model.ReportSingleton;
 
 import java.io.IOException;
 import java.util.List;
@@ -90,7 +91,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
         // Request location permission from user
         requestLocationPermission();
 
-        Singleton.setContext(getApplication().getBaseContext());
+        ReportSingleton.setContext(getApplication().getBaseContext());
     }
 
     /**
@@ -99,7 +100,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
     public LatLng getMostRecentLocation() {
         LatLng location = null;
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-            == PackageManager.PERMISSION_GRANTED) {
+                == PackageManager.PERMISSION_GRANTED) {
             LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
             if(locationManager != null) {
                 Location loc = locationManager.getLastKnownLocation(locationManager.getBestProvider(new Criteria(), false));
@@ -119,7 +120,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
      */
     public void requestLocationPermission() {
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-            != PackageManager.PERMISSION_GRANTED) {
+                != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},
                 ACCESS_FINE_LOCATION_CODE);
@@ -196,8 +197,9 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
         Intent intent = new Intent(this, PagedReportActivity.class);
         String address = addressEditText.getText().toString();
         intent.putExtra("ADDRESS", address);
-        intent.putExtra("LAT", this.getMostRecentLocation().latitude);
-        intent.putExtra("LNG", this.getMostRecentLocation().longitude);
+        LatLng currLatLng = mMap.getCameraPosition().target;
+        intent.putExtra("LAT", currLatLng.latitude);
+        intent.putExtra("LNG", currLatLng.longitude);
         startActivity(intent);
     }
 
@@ -212,7 +214,6 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
     private String getAddress() {
         try {
             LatLng currLatLng = mMap.getCameraPosition().target;
-            //LatLng latlng2 = this.getMostRecentLocation();
             List<Address> addressList = geocoder.getFromLocation(currLatLng.latitude, currLatLng.longitude, 1);
             if(!addressList.isEmpty()) {
                 return addressList.get(0).getAddressLine(0);
