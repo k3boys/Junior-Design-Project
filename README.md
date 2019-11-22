@@ -63,25 +63,18 @@ What things you need to install the software and how to install them
 Give examples
 ```
 
-### Trouble Shooting
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Android Studio](https://developer.android.com/studio?gclid=Cj0KCQiAq97uBRCwARIsADTziyZEZ2PZB4OKuq5xM_3KZ0mIHQL_-N79WouMa_swFTMs8o5ecp386bcaAlEPEALw_wcB) - Android Development Environment
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Rodrigo Pontes**
+* **Kyle Evoy**
+* **Kyle Perras**
+* **Arthur Lazzaretti**
+* **Fernando Mello**
+* **Rafael Hanashiro**
 
 ## Acknowledgments
 
