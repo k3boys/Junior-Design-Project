@@ -13,14 +13,13 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Install Guide
 
-Explain how to run the automated tests for this system
-
 ### Prerequisites
 
 What things you need to install the software and how to install them
 
 ```
-Give examples
+Android Studio - version 3.5 or higher. See [here](https://developer.android.com/studio?gclid=Cj0KCQiAq97uBRCwARIsADTziyZEZ2PZB4OKuq5xM_3KZ0mIHQL_-N79WouMa_swFTMs8o5ecp386bcaAlEPEALw_wcB)
+Gradle - 5.4 or higher. See [here](https://gradle.org/)
 ```
 
 ### Dependencies
@@ -33,39 +32,24 @@ Give examples
 
 ### Download Instructions
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+Simply download the project from this repository or follow [this](https://github.com/k3boys/Junior-Design-Project/archive/master.zip) link.
 
 ### Build Instructions
 
-What things you need to install the software and how to install them
 
-```
-Give examples
-```
 
 ### Installation
 
-What things you need to install the software and how to install them
 
-```
-Give examples
-```
 
 ### Run Instructions
 
-What things you need to install the software and how to install them
 
-```
-Give examples
-```
 
 ## Built With
 
 * [Android Studio](https://developer.android.com/studio?gclid=Cj0KCQiAq97uBRCwARIsADTziyZEZ2PZB4OKuq5xM_3KZ0mIHQL_-N79WouMa_swFTMs8o5ecp386bcaAlEPEALw_wcB) - Android Development Environment
+* [Gradle](https://gradle.org/) - Build Automation System
 
 ## Authors
 
