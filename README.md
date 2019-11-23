@@ -17,10 +17,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 
-```
+
 Android Studio - version 3.5 or higher. See [here](https://developer.android.com/studio?gclid=Cj0KCQiAq97uBRCwARIsADTziyZEZ2PZB4OKuq5xM_3KZ0mIHQL_-N79WouMa_swFTMs8o5ecp386bcaAlEPEALw_wcB)
 Gradle - 5.4 or higher. See [here](https://gradle.org/)
-```
+
 
 ### Dependencies
 
