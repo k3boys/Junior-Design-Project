@@ -17,34 +17,47 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 
+* [Android Studio](https://developer.android.com/studio?gclid=Cj0KCQiAq97uBRCwARIsADTziyZEZ2PZB4OKuq5xM_3KZ0mIHQL_-N79WouMa_swFTMs8o5ecp386bcaAlEPEALw_wcB) - version 3.5 or higher.
 
-Android Studio - version 3.5 or higher. See [here](https://developer.android.com/studio?gclid=Cj0KCQiAq97uBRCwARIsADTziyZEZ2PZB4OKuq5xM_3KZ0mIHQL_-N79WouMa_swFTMs8o5ecp386bcaAlEPEALw_wcB)
-Gradle - 5.4 or higher. See [here](https://gradle.org/)
+* [Android Debug Bridge](https://developer.android.com/studio/releases/platform-tools.html) - Any current version should work. Make sure to add ADB to your system path as well
 
 
 ### Dependencies
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+* [Gradle](https://gradle.org/) - 5.4 or higher.
 
 ### Download Instructions
 
-Simply download the project from this repository or follow [this](https://github.com/k3boys/Junior-Design-Project/archive/master.zip) link.
+Simply download the project from this repository or follow [this](https://github.com/k3boys/Junior-Design-Project/archive/master.zip) link. Then, simply unzip the project in your desired directory.
 
 ### Build Instructions
 
-
+* Launch Android Studio
+* Navigate to File > Settings > Gradle
+* Make sure that "Use default Gradle wrapper" is selected
+* Navigate to Build > Make Project
+* Press "Make Project"
+* Navigate to Build > Build Bundle(s) / APK (s) > Build APK (s)
+* Press "Build APK (s)"
 
 ### Installation
 
+#### Device Setup
 
+* Open your device's Settings application
+* Select "About <device>"
+* Tap the build number 7 times. This will make "Developer Options" available
+* Enable the "USB Debugging" option
+* Navigate to your "Security" and check "Unknown Sources" to allow installation of apps not from the Google Play Store.
+
+#### App Installation
+
+* Connect your android device via USB
+* Use "adb install <file>" where file is the name of your apk file
 
 ### Run Instructions
 
-
+Now, just navigate to the apps location and select it to run.
 
 ## Built With
 
@@ -59,10 +72,3 @@ Simply download the project from this repository or follow [this](https://github
 * **Arthur Lazzaretti**
 * **Fernando Mello**
 * **Rafael Hanashiro**
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
-
