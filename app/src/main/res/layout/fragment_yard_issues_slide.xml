@@ -14,7 +14,7 @@
         android:layout_margin="12dp"
         style="@style/AppSlideTitle"
         android:textAlignment="center"
-        android:text="@string/vehicle_reports_category_title"/>
+        android:text="@string/yard_reports_category_title"/>
 
     <ScrollView
         android:layout_width="match_parent"
